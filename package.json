@@ -26,5 +26,10 @@
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.3.13",
     "stylus": "^0.53.0"
+  },
+  "repository":
+  {
+    "type" : "git",
+    "url" : "https://github.com/chenckang/react-json-pretty"
   }
 }
