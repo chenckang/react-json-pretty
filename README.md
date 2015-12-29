@@ -6,7 +6,7 @@ This is a react component that help you to prettify your json strings on the bro
 
 ## Install
 
-  npm install --save react-json-pretty
+    npm install --save react-json-pretty
 
 ## Usage
 
@@ -14,7 +14,7 @@ The usage is simple, assuming that you already have a react application of JavaS
 
 Firstly, you need to require the react-json-pretty:
 
-  var JSONPretty = require('react-json-pretty');
+    var JSONPretty = require('react-json-pretty');
 
 Or use the es2015 syntax with the help of babel:
 
@@ -22,15 +22,15 @@ Or use the es2015 syntax with the help of babel:
 
 Next, in your 'jsx' use it like the following:
 
-  <JSONPretty json={obj}></JSONPretty>
+    <JSONPretty json={obj}></JSONPretty>
 
 And also import the style, here is an example of using webpack stylus-loader:
 
-  require('react-json-pretty/JSONPretty.monikai.styl');
+    require('react-json-pretty/JSONPretty.monikai.styl');
 
 Or use the es2015
 
-  import 'react-json-pretty/JSONPretty.monikai.styl';
+    import 'react-json-pretty/JSONPretty.monikai.styl';
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
