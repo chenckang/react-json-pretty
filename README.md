@@ -34,11 +34,11 @@ Or use the es2015
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
-If you still do not get it, visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example).
+If you still don't get it, visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example).
 
 Lastly, the preview is as below:
 
-
+[Click here to preview!](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png)
 
 ## License
 
