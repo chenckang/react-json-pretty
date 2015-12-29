@@ -28,7 +28,7 @@ Next, in your 'jsx' file use it like the following:
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
-And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style(You can visit (webpack)[https://webpack.github.io/]) to check it out):
+And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style(You can visit (webpack)[https://webpack.github.io/] to check it out):
 
     require('react-json-pretty/JSONPretty.monikai.styl');
 
