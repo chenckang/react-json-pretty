@@ -20,7 +20,7 @@ Firstly, you need to require the react-json-pretty:
 
 Or use the es2015 syntax with the help of babel:
 
-  import JSONPretty from 'react-json-pretty';
+    import JSONPretty from 'react-json-pretty';
 
 Next, in your 'jsx' file use it like the following:
 
