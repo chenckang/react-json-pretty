@@ -1,0 +1,29 @@
+{
+  "name": "react-json-pretty",
+  "version": "1.0.0",
+  "description": "A code formatting tool for raw json data",
+  "main": "src/JSONPretty.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-styl && npm run build-jsx",
+    "build-styl": "stylus --compress < JSONPretty.styl > src/JSONPretty.css",
+    "build-jsx": "babel JSONPretty.jsx -d src"
+  },
+  "keywords": [
+    "react",
+    "json",
+    "format",
+    "pretty"
+  ],
+  "author": "chenckang@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.3.13",
+    "stylus": "^0.53.0"
+  }
+}
