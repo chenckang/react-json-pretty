@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build-styl && npm run build-jsx",
-    "build-styl": "stylus --compress < JSONPretty.styl > src/JSONPretty.css",
+    "build-styl": "stylus --compress < JSONPretty.monikai.styl > src/JSONPretty.monikai.css",
     "build-jsx": "babel JSONPretty.jsx -d src"
   },
   "keywords": [
@@ -21,6 +21,7 @@
     "react": "^0.14.3"
   },
   "devDependencies": {
+    "babel-cli": "~6.3.17",
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.3.13",

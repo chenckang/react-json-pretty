@@ -28,8 +28,13 @@ module.exports = React.createClass({
   render: function () {
     var json = this.props.json;
 
-    if (typeof json === 'json') {
-      json = JSON.parse(json);
+    if (typeof json === 'string') {
+      try {
+        json = JSON.parse(json);
+      }
+      catch (e) {
+        console.error("The string is not a valid json data!", e);
+      }
     }
 
     return (

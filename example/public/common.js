@@ -55,7 +55,6 @@
 
 	module.exports = __webpack_require__(2);
 
-
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
@@ -231,7 +230,7 @@
 	    draining = true;
 
 	    var len = queue.length;
-	    while(len) {
+	    while (len) {
 	        currentQueue = queue;
 	        queue = [];
 	        while (++queueIndex < len) {
@@ -289,12 +288,15 @@
 	    throw new Error('process.binding is not supported');
 	};
 
-	process.cwd = function () { return '/' };
+	process.cwd = function () {
+	    return '/';
+	};
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
 	};
-	process.umask = function() { return 0; };
-
+	process.umask = function () {
+	    return 0;
+	};
 
 /***/ },
 /* 5 */
@@ -319,6 +321,7 @@
 	 * The current owner is the component who should own any components that are
 	 * currently being constructed.
 	 */
+
 	var ReactCurrentOwner = {
 
 	  /**
@@ -1346,6 +1349,7 @@
 	 * ReactPerf is a general AOP system designed to measure performance. This
 	 * module only has the hooks: see ReactDefaultPerf for the analysis tool.
 	 */
+
 	var ReactPerf = {
 	  /**
 	   * Boolean to enable/disable measurement. Set to false by default to prevent
@@ -4493,6 +4497,7 @@
 	 * handling the case when there is exactly one item (and we do not need to
 	 * allocate an array).
 	 */
+
 	var forEachAccumulated = function (arr, cb, scope) {
 	  if (Array.isArray(arr)) {
 	    arr.forEach(cb, scope);
@@ -4677,7 +4682,7 @@
 	  }
 
 	  var eventName = 'on' + eventNameSuffix;
-	  var isSupported = (eventName in document);
+	  var isSupported = eventName in document;
 
 	  if (!isSupported) {
 	    var element = document.createElement('div');
@@ -5020,6 +5025,7 @@
 
 	// This registry keeps track of the React IDs of the components that rendered to
 	// `null` (in reality a placeholder such as `noscript`)
+
 	var nullComponentIDsRegistry = {};
 
 	/**
@@ -5421,6 +5427,7 @@
 	 */
 
 	// TODO: Replace this with ES6: var ReactInstanceMap = new Map();
+
 	var ReactInstanceMap = {
 
 	  /**
@@ -7197,7 +7204,7 @@
 	    // component, which is not newable. It might not be 100% reliable but is
 	    // something we can do until we start detecting that Component extends
 	    // React.Component. We already assume that typeof Component === 'function'.
-	    var canInstantiate = ('prototype' in Component);
+	    var canInstantiate = 'prototype' in Component;
 
 	    if (canInstantiate) {
 	      if (process.env.NODE_ENV !== 'production') {
@@ -7895,6 +7902,7 @@
 	 * @return {boolean} True if the existing instance should be updated.
 	 * @protected
 	 */
+
 	function shouldUpdateReactComponent(prevElement, nextElement) {
 	  var prevEmpty = prevElement === null || prevElement === false;
 	  var nextEmpty = nextElement === null || nextElement === false;
@@ -9890,6 +9898,7 @@
 	 * @param {object} nativeEvent Native browser event.
 	 * @return {DOMEventTarget} Target node.
 	 */
+
 	function getEventTarget(nativeEvent) {
 	  var target = nativeEvent.target || nativeEvent.srcElement || window;
 	  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
@@ -9919,6 +9928,7 @@
 	/**
 	 * @see http://www.whatwg.org/specs/web-apps/current-work/multipage/the-input-element.html#input-type-attr-summary
 	 */
+
 	var supportedInputTypes = {
 	  'color': true,
 	  'date': true,
@@ -11760,6 +11770,7 @@
 	/**
 	 * @param {DOMElement} node input/textarea to focus
 	 */
+
 	function focusNode(node) {
 	  // IE8 can throw "Can't move focus to the control because it is invisible,
 	  // not enabled, or of a type that does not accept the focus." for all kinds of
@@ -11972,6 +11983,7 @@
 	/**
 	 * CSS properties which accept numbers but are not in units of "px".
 	 */
+
 	var isUnitlessNumber = {
 	  animationIterationCount: true,
 	  boxFlex: true,
@@ -12344,6 +12356,7 @@
 	 * @param {function} callback
 	 * @return {function}
 	 */
+
 	function memoizeStringOnly(callback) {
 	  var cache = {};
 	  return function (string) {
@@ -13090,6 +13103,7 @@
 	'use strict';
 
 	/* global Symbol */
+
 	var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
 	var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
 
@@ -14976,6 +14990,7 @@
 	 * @param {DOMWindow|DOMElement} scrollable
 	 * @return {object} Map with `x` and `y` keys.
 	 */
+
 	function getUnboundedScrollPosition(scrollable) {
 	  if (scrollable === window) {
 	    return {
@@ -15516,10 +15531,10 @@
 	      continue;
 	    }
 
-	    var isReserved = (name in RESERVED_SPEC_KEYS);
+	    var isReserved = name in RESERVED_SPEC_KEYS;
 	    !!isReserved ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactClass: You are attempting to define a reserved ' + 'property, `%s`, that shouldn\'t be on the "statics" key. Define it ' + 'as an instance property instead; it will still be accessible on the ' + 'constructor.', name) : invariant(false) : undefined;
 
-	    var isInherited = (name in Constructor);
+	    var isInherited = name in Constructor;
 	    !!isInherited ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactClass: You are attempting to define ' + '`%s` on your component more than once. This conflict may be ' + 'due to a mixin.', name) : invariant(false) : undefined;
 	    Constructor[name] = property;
 	  }
@@ -16299,7 +16314,7 @@
 	        start: input.selectionStart,
 	        end: input.selectionEnd
 	      };
-	    } else if (document.selection && (input.nodeName && input.nodeName.toLowerCase() === 'input')) {
+	    } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
 	      // IE8 input.
 	      var range = document.selection.createRange();
 	      // There can only be one selection per document in IE, so it must
@@ -16334,7 +16349,7 @@
 	    if ('selectionStart' in input) {
 	      input.selectionStart = start;
 	      input.selectionEnd = Math.min(end, input.value.length);
-	    } else if (document.selection && (input.nodeName && input.nodeName.toLowerCase() === 'input')) {
+	    } else if (document.selection && input.nodeName && input.nodeName.toLowerCase() === 'input') {
 	      var range = input.createTextRange();
 	      range.collapse(true);
 	      range.moveStart('character', start);
@@ -16588,6 +16603,7 @@
 	 * @param {DOMElement|DOMTextNode} node
 	 * @return {DOMElement|DOMTextNode}
 	 */
+
 	function getLeafNode(node) {
 	  while (node && node.firstChild) {
 	    node = node.firstChild;
@@ -16911,6 +16927,7 @@
 	 * get confused. In the future we need a way to generate GUIDs but for
 	 * now this will work on a smaller scale.
 	 */
+
 	var GLOBAL_MOUNT_POINT_MAX = Math.pow(2, 53);
 
 	var ServerReactRootIndex = {
@@ -17718,6 +17735,7 @@
 	 * @param {object} nativeEvent Native browser event.
 	 * @return {number} Normalized `charCode` property.
 	 */
+
 	function getEventCharCode(nativeEvent) {
 	  var charCode;
 	  var keyCode = nativeEvent.keyCode;
