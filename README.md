@@ -12,7 +12,7 @@ This is a react component that help you to prettify your json strings on the bro
 
 ## Usage
 
-The usage is quite simple, assuming that you already have a react application of JavaScript. If you don't, visit [Facebook React](https://facebook.github.io/react/) to create one or just take a look at the example provided.
+The usage is quite simple, assuming that you already have a react application of JavaScript. If you don't, visit [Facebook React](https://facebook.github.io/react/) to create one or just take a look at the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) provided.
 
 Firstly, you need to require the react-json-pretty:
 
@@ -24,11 +24,11 @@ Or use the es2015 syntax with the help of babel:
 
 Next, in your 'jsx' file use it like the following:
 
-    <JSONPretty json={obj}></JSONPretty>
+    <JSONPretty id="json-pretty" json={obj}></JSONPretty>
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
-And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style(You can visit (webpack)[https://webpack.github.io/] to check it out):
+And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style, You can visit (webpack)[https://webpack.github.io/] to get more details:
 
     require('react-json-pretty/JSONPretty.monikai.styl');
 
@@ -40,7 +40,7 @@ If you still don't get it, visit the [example](https://github.com/chenckang/reac
 
 Lastly, if you succeed so far the preview will look like the below:
 
-[Click here to preview!](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png)
+![previews, you can also find it in the example folder](http://chenckang.github.io/labs/imgs/preview.png)
 
 Have your fun!
 

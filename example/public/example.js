@@ -69,12 +69,17 @@
 	  React.createElement(
 	    'div',
 	    null,
-	    React.createElement(JSONPretty, { json: obj })
+	    React.createElement(JSONPretty, { id: 'json-pretty', json: obj })
 	  ),
 	  React.createElement(
 	    'div',
 	    null,
 	    React.createElement(JSONPretty, { json: obj2 })
+	  ),
+	  React.createElement(
+	    'div',
+	    null,
+	    React.createElement(JSONPretty, { json: React })
 	  )
 	), document.getElementById('example'));
 
@@ -19717,6 +19722,8 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var React = __webpack_require__(161);
 
 	module.exports = React.createClass({
@@ -19754,7 +19761,7 @@
 	      }
 	    }
 
-	    return React.createElement('pre', { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } });
+	    return React.createElement('pre', _extends({}, this.props, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } }));
 	  }
 	});
 

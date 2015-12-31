@@ -24,10 +24,13 @@ require('react-json-pretty/JSONPretty.monikai.styl');
 ReactDOM.render(
   <div>
     <div>
-      <JSONPretty json={obj}></JSONPretty>
+      <JSONPretty id="json-pretty" json={obj}></JSONPretty>
     </div>
     <div>
       <JSONPretty json={obj2}></JSONPretty>
+    </div>
+    <div>
+      <JSONPretty json={React}></JSONPretty>
     </div>
   </div>,
   document.getElementById('example')

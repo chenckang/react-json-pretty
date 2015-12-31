@@ -38,7 +38,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <pre className='json-pretty' dangerouslySetInnerHTML={{__html: this._pretty(json)}}>
+      <pre {...this.props} className='json-pretty' dangerouslySetInnerHTML={{__html: this._pretty(json)}}>
       </pre>
     );
   }

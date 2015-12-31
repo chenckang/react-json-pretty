@@ -1,3 +1,5 @@
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
 
 module.exports = React.createClass({
@@ -27,10 +29,14 @@ module.exports = React.createClass({
   render: function () {
     var json = this.props.json;
 
-    if (typeof json === 'json') {
-      json = JSON.parse(json);
+    if (typeof json === 'string') {
+      try {
+        json = JSON.parse(json);
+      } catch (e) {
+        console.error("The string is not a valid json data!", e);
+      }
     }
 
-    return React.createElement('pre', { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } });
+    return React.createElement('pre', _extends({}, this.props, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } }));
   }
 });
