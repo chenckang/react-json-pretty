@@ -69,7 +69,7 @@
 	  React.createElement(
 	    'div',
 	    null,
-	    React.createElement(JSONPretty, { id: 'json-pretty', json: obj })
+	    React.createElement(JSONPretty, { id: 'json-pretty', style: { fontSize: "1.5em" }, json: obj })
 	  ),
 	  React.createElement(
 	    'div',

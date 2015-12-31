@@ -24,7 +24,7 @@ require('react-json-pretty/JSONPretty.monikai.styl');
 ReactDOM.render(
   <div>
     <div>
-      <JSONPretty id="json-pretty" json={obj}></JSONPretty>
+      <JSONPretty id="json-pretty" style={{fontSize: "1.5em"}} json={obj}></JSONPretty>
     </div>
     <div>
       <JSONPretty json={obj2}></JSONPretty>
