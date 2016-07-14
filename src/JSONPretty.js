@@ -1,4 +1,8 @@
+'use strict';
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var React = require('react');
 
@@ -6,7 +10,7 @@ module.exports = React.createClass({
   displayName: 'exports',
 
   // 格式化函数
-  _replace: function (match, ind, key, val, tra) {
+  _replace: function _replace(match, ind, key, val, tra) {
     var spanEnd = '</span>';
     var keySpan = '<span class=json-key>';
     var valSpan = '<span class=json-value>';
@@ -21,13 +25,18 @@ module.exports = React.createClass({
     return sps + (tra || '');
   },
   // JSON =》 HTML转换器
-  _pretty: function (obj) {
+  _pretty: function _pretty(obj) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
     return JSON.stringify(obj, null, 2).replace(/&/g, '&amp;').replace(/\\"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(regLine, this._replace);
   },
-  render: function () {
-    var json = this.props.json;
+  render: function render() {
+
+    // See https://facebook.github.io/react/warnings/unknown-prop.html
+    var _props = this.props;
+    var json = _props.json;
+
+    var rest = _objectWithoutProperties(_props, ['json']);
 
     if (typeof json === 'string') {
       try {
@@ -37,6 +46,6 @@ module.exports = React.createClass({
       }
     }
 
-    return React.createElement('pre', _extends({}, this.props, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } }));
+    return React.createElement('pre', _extends({}, rest, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } }));
   }
 });
