@@ -30,7 +30,7 @@ Next, in your 'jsx' file use it like the following:
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
-And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style, You can visit (webpack)[https://webpack.github.io/] to get more details:
+And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style, You can visit [webpack](https://webpack.github.io/) to get more details:
 
     require('react-json-pretty/JSONPretty.monikai.styl');
 
@@ -42,7 +42,7 @@ If you still don't get it, visit the [example](https://github.com/chenckang/reac
 
 Lastly, if you succeed so far the preview will look like the below:
 
-![previews, you can also find it in the example folder](http://chenckang.github.io/labs/imgs/preview.png)
+![previews, you can also find it in the example folder](http://imgs.co/u/16/07/18/VjeAR.png)
 
 Have your fun!
 
