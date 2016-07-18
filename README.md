@@ -1,6 +1,8 @@
 # React JSON Pretty
 
 [![npm version](https://badge.fury.io/js/react-json-pretty.svg)](https://badge.fury.io/js/react-json-pretty)
+[![npm downloads](https://img.shields.io/npm/dm/react-json-pretty.svg)](https://www.npmjs.com/package/react-json-pretty)
+![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## Introduction
 
