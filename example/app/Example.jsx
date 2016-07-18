@@ -18,7 +18,7 @@ var obj2 = {
   }
 };
 
-var JSONPretty = require('react-json-pretty/JSONPretty.jsx');
+var JSONPretty = require('react-json-pretty');
 require('react-json-pretty/JSONPretty.monikai.styl');
 
 ReactDOM.render(
