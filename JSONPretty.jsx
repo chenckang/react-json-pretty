@@ -26,7 +26,9 @@ module.exports = React.createClass({
         .replace(regLine, this._replace);
   },
   render: function () {
-    var json = this.props.json;
+
+    // See https://facebook.github.io/react/warnings/unknown-prop.html
+    var { json, ...rest } = this.props;
 
     if (typeof json === 'string') {
       try {
@@ -38,7 +40,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <pre {...this.props} className='json-pretty' dangerouslySetInnerHTML={{__html: this._pretty(json)}}>
+      <pre {...rest} className='json-pretty' dangerouslySetInnerHTML={{__html: this._pretty(json)}}>
       </pre>
     );
   }
