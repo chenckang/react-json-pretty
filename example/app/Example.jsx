@@ -19,7 +19,10 @@ var obj2 = {
 };
 
 var JSONPretty = require('react-json-pretty');
-require('react-json-pretty/JSONPretty.monikai.styl');
+require('react-json-pretty/JSONPretty.adventure_time.styl');
+obj.text = true;
+obj.abc = false;
+obj.number = 1234567890;
 
 ReactDOM.render(
   <div>

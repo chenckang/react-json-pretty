@@ -44,6 +44,12 @@ Lastly, if you succeed so far the preview will look like the below:
 
 ![previews, you can also find it in the example folder](http://imgs.co/u/16/07/18/VjeAR.png)
 
+Since the version 1.3.0, we have added more color themes to this package, including "Adventure Time", acai and 1337, to provide users more ready-made options.
+
+![Adventure Time](https://go.imgs.co/u/2016/12/29/2DjoGR.png)
+![1337](https://go.imgs.co/u/2016/12/29/24Wp3D.md.png)
+![acai](https://go.imgs.co/u/2016/12/29/2Dji9i.md.png)
+
 Have your fun!
 
 ## License
