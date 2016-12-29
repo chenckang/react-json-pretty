@@ -5,7 +5,7 @@ var obj = require('../package.json');
 var obj2 = {
   aaaa: 1,
   bbbb: true,
-  cccc: "abcd",
+  cccc: "ab\"cd\\",
   dddd: {
     eeee: 1,
     ffff: [

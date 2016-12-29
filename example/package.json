@@ -21,6 +21,7 @@
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.4.2",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "react-json-pretty": "~1.2.1"
   }
 }

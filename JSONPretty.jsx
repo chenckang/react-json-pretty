@@ -7,13 +7,21 @@ module.exports = React.createClass({
     var keySpan = '<span class=json-key>';
     var valSpan = '<span class=json-value>';
     var strSpan = '<span class=json-string>';
+    var booSpan = '<span class=json-boolean>';
     var sps = ind || '';
     if (key) {
       sps = sps + '"' + keySpan + key.replace(/[": ]/g, '') + spanEnd + '": ';
     }
+
     if (val) {
-      sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;
+      if (val === "true" || val === "false") {
+        sps = sps + (val[0] == '"' ? strSpan : booSpan) + val + spanEnd;
+      }
+      else {
+        sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;
+      }
     }
+
     return sps + (tra || '');
   },
   // JSON =》 HTML转换器
@@ -21,7 +29,7 @@ module.exports = React.createClass({
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
       return JSON.stringify(obj, null, 2)
-        .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+        .replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1')
         .replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(regLine, this._replace);
   },
