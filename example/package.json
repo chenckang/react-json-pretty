@@ -17,11 +17,11 @@
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.4.2",
-    "webpack": "^1.12.9",
-    "react-json-pretty": "~1.4.0"
+    "webpack": "^1.12.9"
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-json-pretty": "^1.4.0"
   }
 }
