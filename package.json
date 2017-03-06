@@ -19,7 +19,8 @@
   "author": "chenckang@gmail.com",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^0.14.3"
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0"
   },
   "devDependencies": {
     "babel-cli": "~6.3.17",
