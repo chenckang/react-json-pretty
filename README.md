@@ -52,6 +52,10 @@ Since the version 1.3.0, we have added more color themes to this package, includ
 
 ## Changelog
 
+### 1.6.1
+
+1. Upgrade examples to depress warnings
+
 ### 1.6.0
 
 1. Use npm creat-react-class instead of using React.createClass to avoid react deprecated warning
