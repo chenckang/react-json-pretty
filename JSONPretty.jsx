@@ -1,6 +1,7 @@
 var React = require('react');
+var createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   // 格式化函数
   _replace: function (match, ind, key, val, tra) {
     var spanEnd = '</span>';

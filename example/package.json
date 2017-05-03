@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server --content-base build/"
   },
   "author": "",
   "license": "MIT",
@@ -16,12 +17,12 @@
     "html-webpack-plugin": "^1.7.0",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.0",
-    "stylus-loader": "^1.4.2",
+    "stylus-loader": "^3.0.1",
     "webpack": "^1.12.9"
   },
   "dependencies": {
+    "circular-json": "^0.3.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-json-pretty": "^1.4.0"
+    "react-dom": "^15.4.2"
   }
 }

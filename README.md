@@ -50,7 +50,15 @@ Since the version 1.3.0, we have added more color themes to this package, includ
 ![1337](https://go.imgs.co/u/2016/12/29/24Wp3D.md.png)
 ![acai](https://go.imgs.co/u/2016/12/29/2Dji9i.md.png)
 
-Have your fun!
+## Changelog
+
+### 1.6.0
+
+1. Use npm creat-react-class instead of using React.createClass to avoid react deprecated warning
+2. Peer Dependencies of react update to ">=15.5.0"
+3. Build all stylus files to css files
+4. Upgrade examples(use `npm link` command to add react-json-pretty as dependencies)
+5. Fix circular json problems in examples
 
 ## License
 

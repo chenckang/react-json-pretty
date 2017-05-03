@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var CircularJSON = require('circular-json')
 
 var obj = require('../package.json');
 var obj2 = {
@@ -24,6 +25,8 @@ obj.text = true;
 obj.abc = false;
 obj.number = 1234567890;
 
+var obj3 = CircularJSON.stringify(ReactDOM);
+
 ReactDOM.render(
   <div>
     <div>
@@ -33,7 +36,7 @@ ReactDOM.render(
       <JSONPretty json={obj2}></JSONPretty>
     </div>
     <div>
-      <JSONPretty json={React}></JSONPretty>
+      <JSONPretty json={obj3}></JSONPretty>
     </div>
   </div>,
   document.getElementById('example')
