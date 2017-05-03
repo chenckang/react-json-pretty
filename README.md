@@ -53,6 +53,11 @@ Since the version 1.3.0, we have added more color themes to this package, includ
 
 ## Changelog
 
+### 1.6.2
+
+1. Add testcases(using jest)
+1. Add .travis.yml for travis ci
+
 ### 1.6.1
 
 1. Upgrade examples to depress warnings
