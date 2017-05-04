@@ -4,7 +4,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+/* eslint-disable no-unused-vars */
 var React = require('react');
+/* eslint-enable no-unused-vars */
 var createReactClass = require('create-react-class');
 
 module.exports = createReactClass({
@@ -21,7 +23,7 @@ module.exports = createReactClass({
     }
 
     if (val) {
-      if (val === "true" || val === "false") {
+      if (val === 'true' || val === 'false') {
         sps = sps + booSpan + val + spanEnd;
       } else {
         sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;
@@ -47,7 +49,7 @@ module.exports = createReactClass({
       try {
         json = JSON.parse(json);
       } catch (e) {
-        console.error("The string is not a valid json data!", e);
+        console.error('The string is not a valid json data!', e);
         return React.createElement('pre', _extends({}, rest, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: json } }));
       }
     }
