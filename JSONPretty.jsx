@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+var React = require('react');
+/* eslint-enable no-unused-vars */
 var createReactClass = require('create-react-class');
 
 module.exports = createReactClass({

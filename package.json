@@ -7,7 +7,7 @@
     "test": "jest --coverage --silent",
     "build": "npm run build-styl && npm run build-jsx",
     "eslint": "eslint JSONPretty.jsx",
-    "precommit": "npm run eslint",
+    "precommit": "npm run build && npm run eslint",
     "prepush": "npm test",
     "build-styl-monikai": "stylus --compress < JSONPretty.monikai.styl > src/JSONPretty.monikai.css",
     "build-styl-1337": "stylus --compress < JSONPretty.1337.styl > src/JSONPretty.1337.css",

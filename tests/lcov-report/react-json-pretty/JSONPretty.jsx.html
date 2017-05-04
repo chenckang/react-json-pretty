@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">37.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/25</span>
+        <span class='fraction'>9/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">12.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>2/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">37.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/25</span>
+        <span class='fraction'>9/24</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -102,39 +102,37 @@
 57
 58
 59
-60
-61</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+60</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,41 +161,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var React = require('react');
-var createReactClass = require('create-react-class');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var createReactClass = require('create-react-class');
 &nbsp;
 module.exports = createReactClass({
   // 格式化函数
-  _replace: function (match, ind, key, val, tra) {
-    var spanEnd = '&lt;/span&gt;';
-    var keySpan = '&lt;span class=json-key&gt;';
-    var valSpan = '&lt;span class=json-value&gt;';
-    var strSpan = '&lt;span class=json-string&gt;';
-    var booSpan = '&lt;span class=json-boolean&gt;';
-    var sps = ind || '';
-    if (key) {
-      sps = sps + '"' + keySpan + key.replace(/[": ]/g, '') + spanEnd + '": ';
+  _replace: <span class="fstat-no" title="function not covered" >fu</span>nction (match, ind, key, val, tra) {
+    var spanEnd = <span class="cstat-no" title="statement not covered" >'&lt;/span&gt;';</span>
+    var keySpan = <span class="cstat-no" title="statement not covered" >'&lt;span class=json-key&gt;';</span>
+    var valSpan = <span class="cstat-no" title="statement not covered" >'&lt;span class=json-value&gt;';</span>
+    var strSpan = <span class="cstat-no" title="statement not covered" >'&lt;span class=json-string&gt;';</span>
+    var booSpan = <span class="cstat-no" title="statement not covered" >'&lt;span class=json-boolean&gt;';</span>
+    var sps = <span class="cstat-no" title="statement not covered" >ind || '';</span>
+<span class="cstat-no" title="statement not covered" >    if (key) {</span>
+<span class="cstat-no" title="statement not covered" >      sps = sps + '"' + keySpan + key.replace(/[": ]/g, '') + spanEnd + '": ';</span>
     }
 &nbsp;
-    if (val) {
-      if (val === "true" || val === "false") {
-        sps = sps +  booSpan + val + spanEnd;
+<span class="cstat-no" title="statement not covered" >    if (val) {</span>
+<span class="cstat-no" title="statement not covered" >      if (val === 'true' || val === 'false') {</span>
+<span class="cstat-no" title="statement not covered" >        sps = sps +  booSpan + val + spanEnd;</span>
       }
       else {
-        sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;
+<span class="cstat-no" title="statement not covered" >        sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;</span>
       }
     }
 &nbsp;
-    return sps + (tra || '');
+<span class="cstat-no" title="statement not covered" >    return sps + (tra || '');</span>
   },
   // JSON =》 HTML转换器
-  _pretty: function (obj) {
+  _pretty: <span class="fstat-no" title="function not covered" >fu</span>nction (obj) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
-    var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
-      return JSON.stringify(obj, null, 2)
-        .replace(/&amp;/g, '&amp;amp;').replace(/\\"([^,])/g, '&amp;quot;$1')
-        .replace(/&lt;/g, '&amp;lt;').replace(/&gt;/g, '&amp;gt;')
-        .replace(regLine, this._replace);
+    var regLine = <span class="cstat-no" title="statement not covered" >/^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;</span>
+<span class="cstat-no" title="statement not covered" >    return JSON.stringify(obj, null, 2)</span>
+      .replace(/&amp;/g, '&amp;amp;').replace(/\\"([^,])/g, '&amp;quot;$1')
+      .replace(/&lt;/g, '&amp;lt;').replace(/&gt;/g, '&amp;gt;')
+      .replace(regLine, this._replace);
   },
   render: function () {
 &nbsp;
@@ -209,7 +206,7 @@ module.exports = createReactClass({
         json = JSON.parse(json);
       }
       catch (e) {
-        console.error("The string is not a valid json data!", e);
+        console.error('The string is not a valid json data!', e);
         return(
           &lt;pre {...rest} className='json-pretty' dangerouslySetInnerHTML={{__html: json}}&gt;
           &lt;/pre&gt;
@@ -229,7 +226,7 @@ module.exports = createReactClass({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 04 2017 11:16:17 GMT+0800 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 04 2017 11:42:38 GMT+0800 (CST)
 </div>
 </div>
 <script src="../prettify.js"></script>
