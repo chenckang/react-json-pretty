@@ -1,4 +1,3 @@
-var React = require('react');
 var createReactClass = require('create-react-class');
 
 module.exports = createReactClass({
@@ -15,8 +14,8 @@ module.exports = createReactClass({
     }
 
     if (val) {
-      if (val === "true" || val === "false") {
-        sps = sps + (val[0] == '"' ? strSpan : booSpan) + val + spanEnd;
+      if (val === 'true' || val === 'false') {
+        sps = sps +  booSpan + val + spanEnd;
       }
       else {
         sps = sps + (val[0] == '"' ? strSpan : valSpan) + val + spanEnd;
@@ -29,10 +28,10 @@ module.exports = createReactClass({
   _pretty: function (obj) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
-      return JSON.stringify(obj, null, 2)
-        .replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1')
-        .replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(regLine, this._replace);
+    return JSON.stringify(obj, null, 2)
+      .replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(regLine, this._replace);
   },
   render: function () {
 
@@ -44,7 +43,11 @@ module.exports = createReactClass({
         json = JSON.parse(json);
       }
       catch (e) {
-        console.error("The string is not a valid json data!", e);
+        console.error('The string is not a valid json data!', e);
+        return(
+          <pre {...rest} className='json-pretty' dangerouslySetInnerHTML={{__html: json}}>
+          </pre>
+        );
       }
     }
 

@@ -26,3 +26,21 @@ test('src/JSONPretty.js', () => {
 	let tree = json.toJSON();
 	expect(tree).toMatchSnapshot();
 });
+
+test('src/JSONPretty.js -- string', () => {
+	const json = renderer.create(
+		<JSONPretty json={JSON.stringify(obj2)}></JSONPretty>
+  );
+
+	let tree = json.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+test('JSONPretty.js -- StringInvalid', () => {
+	const json = renderer.create(
+		<JSONPretty json={"{1211221}"}></JSONPretty>
+	);
+
+	let tree = json.toJSON();
+	expect(tree).toMatchSnapshot();
+});

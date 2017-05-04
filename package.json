@@ -4,8 +4,11 @@
   "description": "A code formatting tool for raw json data",
   "main": "src/JSONPretty.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --slient",
     "build": "npm run build-styl && npm run build-jsx",
+    "eslint": "eslint JSONPretty.jsx",
+    "precommit": "npm run eslint",
+    "prepush": "npm test",
     "build-styl-monikai": "stylus --compress < JSONPretty.monikai.styl > src/JSONPretty.monikai.css",
     "build-styl-1337": "stylus --compress < JSONPretty.1337.styl > src/JSONPretty.1337.css",
     "build-styl-acai": "stylus --compress < JSONPretty.acai.styl > src/JSONPretty.acai.css",
@@ -34,6 +37,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^6.10.3",
+    "husky": "^0.13.3",
     "jest": "^19.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -47,5 +53,15 @@
   },
   "dependencies": {
     "create-react-class": "^15.5.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**.jsx",
+      "src/**.js"
+    ],
+    "coverageDirectory": "tests",
+    "coverageReporters": [
+      "lcov"
+    ]
   }
 }
