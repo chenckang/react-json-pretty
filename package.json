@@ -4,7 +4,7 @@
   "description": "A code formatting tool for raw json data",
   "main": "src/JSONPretty.js",
   "scripts": {
-    "test": "jest --coverage --slient",
+    "test": "jest --coverage --silent",
     "build": "npm run build-styl && npm run build-jsx",
     "eslint": "eslint JSONPretty.jsx",
     "precommit": "npm run eslint",
