@@ -2,4 +2,5 @@ react-json-pretty.sublime-project
 react-json-pretty.sublime-workspace
 node_modules
 npm-debug.log
-.DS_Store∏∏
+.DS_Store
+tests/icon-report
