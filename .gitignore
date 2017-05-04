@@ -3,4 +3,5 @@ react-json-pretty.sublime-workspace
 node_modules
 npm-debug.log
 .DS_Store
-tests/icon-report
+tests/Icon-report
+tests/Icov.info
