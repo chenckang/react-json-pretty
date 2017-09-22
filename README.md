@@ -10,8 +10,9 @@
 This is a react component that help you to prettify your json strings on the browser based on JavaScript. Presently, it provides a monikai theme style for you, and of course you are free to add your own theme if you like for this is pretty easy.
 
 ## Install
-
-    npm install --save react-json-pretty
+```bash
+npm install --save react-json-pretty
+```
 
 ## Usage
 
