@@ -3,4 +3,4 @@
 .eslintrc.json
 .travis.yml
 example
-test
+tests
