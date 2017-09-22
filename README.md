@@ -67,10 +67,10 @@ Here is the example:
 <JSONPretty json={yourJSON} replacer={
     function (key, value) {
         if (key === 'cccc') {
-        value += '~~~abc';
+            value += '~~~abc';
         }
         if (key === 'gggg') {
-        value *=10;
+            value *=10;
         }
         return value;
     }
