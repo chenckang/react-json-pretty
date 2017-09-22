@@ -115,6 +115,10 @@ Since the version 1.7.0, we add `themeClassName` property for adding custom them
 
 ### 1.7.0
 
+1. Add JSON formation properties —— `replacer`, `space`
+2. Add class propertieds —— `themeClassName`
+3. Add .npmignore
+
 ### 1.6.3
 
 1. Add jest coverage
