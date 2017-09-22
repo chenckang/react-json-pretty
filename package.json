@@ -1,6 +1,6 @@
 {
   "name": "react-json-pretty",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "A code formatting tool for raw json data",
   "main": "src/JSONPretty.js",
   "scripts": {
