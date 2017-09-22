@@ -89,7 +89,10 @@ Since the version 1.7.0, we add `themeClassName` property for adding custom them
 
 ```javascript
 // The final className will be 'test-class custom-json-pretty'
-<JSONPretty className="test-class" themeClassName="custom-json-pretty" json={yourjson}></JSONPretty>
+<JSONPretty className="test-class" themeClassName="custom-json-pretty"
+    json={yourjson}
+>
+</JSONPretty>
 ```
 
 ### Themes
