@@ -107,7 +107,7 @@ Since the version 1.3.0, we have added more color themes to this package, includ
 
 ### 1.7.0
 
-1. Add JSON formation properties —— `replacer`, `space`
+1. Add JSON formation properties —— `replacer` `space`
 2. Add class propertieds —— `themeClassName`
 3. Add .npmignore
 
