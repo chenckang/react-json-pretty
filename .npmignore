@@ -1,4 +1,6 @@
 .babelrc
-node_modules
+.gitignore
+.eslintrc.json
+.travis.yml
 example
 test
