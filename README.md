@@ -57,14 +57,6 @@ Lastly, if you succeed so far the preview will look like the below:
 
 ## Upgrade
 
-### Themes
-
-Since the version 1.3.0, we have added more color themes to this package, including "Adventure Time", acai and 1337, to provide users more ready-made options.
-
-![Adventure Time](https://go.imgs.co/u/2016/12/29/2DjoGR.png)
-![1337](https://go.imgs.co/u/2016/12/29/24Wp3D.md.png)
-![acai](https://go.imgs.co/u/2016/12/29/2Dji9i.md.png)
-
 ### Formation
 
 Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space]])`. However, `JSON.stringify(value[, replacer[, space]])` has some optional parameters additionally such as `replacer` and `space`. so since the version 1.7.0, we extend react-json-pretty to support these two parameters.
@@ -99,6 +91,14 @@ Since the version 1.7.0, we add `themeClassName` property for adding custom them
 // The final className will be 'test-class custom-json-pretty'
 <JSONPretty className="test-class" themeClassName="custom-json-pretty" json={yourjson}></JSONPretty>
 ```
+
+### Themes
+
+Since the version 1.3.0, we have added more color themes to this package, including "Adventure Time", acai and 1337, to provide users more ready-made options.
+
+![Adventure Time](https://go.imgs.co/u/2016/12/29/2DjoGR.png)
+![1337](https://go.imgs.co/u/2016/12/29/24Wp3D.md.png)
+![acai](https://go.imgs.co/u/2016/12/29/2Dji9i.md.png)
 
 ## Changelog
 
