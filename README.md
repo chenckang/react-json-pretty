@@ -21,24 +21,18 @@ The usage is quite simple, assuming that you already have a react application of
 Firstly, you need to require the react-json-pretty:
 
 ```javascript
-
 var JSONPretty = require('react-json-pretty');
-
 ```
 Or use the es2015 syntax with the help of babel:
 
 ```javascript
-
 import JSONPretty from 'react-json-pretty';
-
 ```
 
 Next, in your 'jsx' file use it like the following:
 
 ```javascript
-
 <JSONPretty id="json-pretty" json={obj}></JSONPretty>
-
 ```
 
 Where `obj` is the JSON string or just a valid JavaScript object.
@@ -46,15 +40,13 @@ Where `obj` is the JSON string or just a valid JavaScript object.
 And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style, You can visit [webpack](https://webpack.github.io/) to get more details:
 
 ```javascript
-
 require('react-json-pretty/JSONPretty.monikai.styl');
-
 ```
 
 Or use the es2015
 
 ```javascript
-    import 'react-json-pretty/JSONPretty.monikai.styl';
+import 'react-json-pretty/JSONPretty.monikai.styl';
 ```
 
 If you still don't get it, visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example).
@@ -80,7 +72,6 @@ Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space
 Here is the example:
 
 ```javascript
-
 <JSONPretty json={yourJSON} replacer={
     function (key, value) {
         if (key === 'cccc') {
@@ -94,7 +85,6 @@ Here is the example:
 } space="4"
 >
 </JSONPretty>
-
 ```
 
 The default value for property `replacer` is `null`，and `space` is `2`.
@@ -106,10 +96,8 @@ You can visit the [example](https://github.com/chenckang/react-json-pretty/tree/
 Since the version 1.7.0, we add `themeClassName` property for adding custom theme `className`，the default `className` for theme is `json-pretty`. but in case you want to have your own name, you use `themeClassName` property to modify it;
 
 ```javascript
-
 // The final className will be 'test-class custom-json-pretty'
 <JSONPretty className="test-class" themeClassName="custom-json-pretty" json={yourjson}></JSONPretty>
-
 ```
 
 ## Changelog
