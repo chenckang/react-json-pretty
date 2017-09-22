@@ -28,18 +28,28 @@ module.exports = createReactClass({
     return sps + (tra || '');
   },
   // JSON =》 HTML转换器
-  _pretty: function (obj) {
+  _pretty: function (obj, replacer, space) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
-    return JSON.stringify(obj, null, 2)
-      .replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1')
+    var text = JSON.stringify(obj, typeof replacer === 'function' ? replacer : null, isNaN(space) ? 2 : space);
+
+    if (!text) {
+      return text;
+    }
+
+    return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1')
       .replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(regLine, this._replace);
   },
   render: function () {
 
     // See https://facebook.github.io/react/warnings/unknown-prop.html
-    var { json, ...rest } = this.props;
+    var { json, replacer, space, className, themeClassName, ...rest } = this.props;
+
+    themeClassName = themeClassName ? themeClassName.trim() : themeClassName;
+    className = className ? className.trim() : className;
+    var themeClassNameFinal = themeClassName || 'json-pretty';
+    var classNameFinal = className ? (className + ' ' + themeClassNameFinal) : themeClassNameFinal;
 
     if (typeof json === 'string') {
       try {
@@ -48,14 +58,14 @@ module.exports = createReactClass({
       catch (e) {
         console.error('The string is not a valid json data!', e);
         return(
-          <pre {...rest} className='json-pretty' dangerouslySetInnerHTML={{__html: json}}>
+          <pre {...rest} className={classNameFinal || 'json-pretty'} dangerouslySetInnerHTML={{__html: json}}>
           </pre>
         );
       }
     }
 
     return (
-      <pre {...rest} className='json-pretty' dangerouslySetInnerHTML={{__html: this._pretty(json)}}>
+      <pre {...rest} className={classNameFinal || 'json-pretty'} dangerouslySetInnerHTML={{__html: this._pretty(json, replacer, +space)}}>
       </pre>
     );
   }

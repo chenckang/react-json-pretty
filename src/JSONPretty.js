@@ -33,27 +33,42 @@ module.exports = createReactClass({
     return sps + (tra || '');
   },
   // JSON =》 HTML转换器
-  _pretty: function _pretty(obj) {
+  _pretty: function _pretty(obj, replacer, space) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     var regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
-    return JSON.stringify(obj, null, 2).replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(regLine, this._replace);
+    var text = JSON.stringify(obj, typeof replacer === 'function' ? replacer : null, isNaN(space) ? 2 : space);
+
+    if (!text) {
+      return text;
+    }
+
+    return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(regLine, this._replace);
   },
   render: function render() {
 
     // See https://facebook.github.io/react/warnings/unknown-prop.html
     var _props = this.props,
         json = _props.json,
-        rest = _objectWithoutProperties(_props, ['json']);
+        replacer = _props.replacer,
+        space = _props.space,
+        className = _props.className,
+        themeClassName = _props.themeClassName,
+        rest = _objectWithoutProperties(_props, ['json', 'replacer', 'space', 'className', 'themeClassName']);
+
+    themeClassName = themeClassName ? themeClassName.trim() : themeClassName;
+    className = className ? className.trim() : className;
+    var themeClassNameFinal = themeClassName || 'json-pretty';
+    var classNameFinal = className ? className + ' ' + themeClassNameFinal : themeClassNameFinal;
 
     if (typeof json === 'string') {
       try {
         json = JSON.parse(json);
       } catch (e) {
         console.error('The string is not a valid json data!', e);
-        return React.createElement('pre', _extends({}, rest, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: json } }));
+        return React.createElement('pre', _extends({}, rest, { className: classNameFinal || 'json-pretty', dangerouslySetInnerHTML: { __html: json } }));
       }
     }
 
-    return React.createElement('pre', _extends({}, rest, { className: 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json) } }));
+    return React.createElement('pre', _extends({}, rest, { className: classNameFinal || 'json-pretty', dangerouslySetInnerHTML: { __html: this._pretty(json, replacer, +space) } }));
   }
 });
