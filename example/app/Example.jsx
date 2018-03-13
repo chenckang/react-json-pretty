@@ -26,6 +26,7 @@ obj.text = true;
 obj.abc = false;
 obj.number = 1234567890;
 
+ReactDOM.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 var obj3 = CircularJSON.stringify(ReactDOM);
 
 ReactDOM.render(
@@ -51,7 +52,7 @@ ReactDOM.render(
     <div>
       <JSONPretty json={obj3}></JSONPretty>
       <JSONPretty className="test-3" json={obj3}></JSONPretty>
-      <JSONPretty className="test-3   " themeClassName="   custom-json-pretty" json={obj3}></JSONPretty>
+      <JSONPretty className="test-3" themeClassName="custom-json-pretty" json={obj3}></JSONPretty>
     </div>
   </div>,
   document.getElementById('example')

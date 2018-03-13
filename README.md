@@ -53,7 +53,7 @@ If you still don't get it, visit the [example](https://github.com/chenckang/reac
 
 Lastly, if you succeed so far the preview will look like the below:
 
-![previews, you can also find it in the example folder](http://imgs.co/u/16/07/18/VjeAR.png)
+![previews, you can also find it in the example folder](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png?raw=true)
 
 ## Upgrade
 
@@ -99,9 +99,9 @@ Since the version 1.7.0, we add `themeClassName` property for adding custom them
 
 Since the version 1.3.0, we have added more color themes to this package, including "Adventure Time", acai and 1337, to provide users more ready-made options.
 
-![Adventure Time](https://go.imgs.co/u/2016/12/29/2DjoGR.png)
-![1337](https://go.imgs.co/u/2016/12/29/24Wp3D.md.png)
-![acai](https://go.imgs.co/u/2016/12/29/2Dji9i.md.png)
+![Adventure Time](https://github.com/chenckang/react-json-pretty/blob/master/example/at.png?raw=true)
+![1337](https://github.com/chenckang/react-json-pretty/blob/master/example/1337.png?raw=true)
+![acai](https://github.com/chenckang/react-json-pretty/blob/master/example/acai.png?raw=true)
 
 ## Changelog
 
