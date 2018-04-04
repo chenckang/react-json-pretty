@@ -5,8 +5,9 @@ var CircularJSON = require('circular-json')
 var obj = require('../package.json');
 var obj2 = {
   aaaa: 1,
-  bbbb: true,
+  'bb:bb': true,
   cccc: "ab\"cd\\",
+  ':i\"iii:': ":ii:ii",
   dddd: {
     eeee: 1,
     ffff: [
@@ -14,7 +15,7 @@ var obj2 = {
         gggg: 3
       },
       2,
-      "string"
+      "str:ing"
     ]
   }
 };

@@ -105,6 +105,10 @@ Since the version 1.3.0, we have added more color themes to this package, includ
 
 ## Changelog
 
+### 1.7.6
+
+1. Fix [issue 9](https://github.com/chenckang/react-json-pretty/issues/9)
+
 ### 1.7.0
 
 1. Add JSON formation properties —— `replacer` `space`
