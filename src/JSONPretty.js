@@ -21,7 +21,7 @@ module.exports = createReactClass({
     var booSpan = '<span class=json-boolean>';
     var sps = ind || '';
     if (key) {
-      sps = sps + '"' + keySpan + key.replace(/[": ]/g, '') + spanEnd + '": ';
+      sps = sps + '"' + keySpan + key.replace(/^"|":\s$/g, '') + spanEnd + '": ';
     }
 
     if (val) {
