@@ -44,7 +44,7 @@ module.exports = createReactClass({
       return text;
     }
 
-    return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '&quot;$1').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(regLine, this._replace);
+    return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '\\&quot;$1').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(regLine, this._replace);
   },
   render: function render() {
 

@@ -9,6 +9,8 @@
     "eslint": "eslint JSONPretty.jsx",
     "precommit": "npm run build && npm run eslint",
     "prepush": "npm test",
+    "release": "standard-version",
+    "patch": "npm run release -- --release-as patch",
     "build-styl-monikai": "stylus --compress < JSONPretty.monikai.styl > src/JSONPretty.monikai.css",
     "build-styl-1337": "stylus --compress < JSONPretty.1337.styl > src/JSONPretty.1337.css",
     "build-styl-acai": "stylus --compress < JSONPretty.acai.styl > src/JSONPretty.acai.css",
@@ -44,6 +46,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
+    "standard-version": "^4.4.0",
     "stylus": "^0.54.5",
     "webpack": "^2.4.1"
   },

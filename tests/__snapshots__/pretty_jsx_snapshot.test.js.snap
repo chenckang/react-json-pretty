@@ -11,7 +11,7 @@ exports[`JSONPretty.jsx -- String 1`] = `
       \\"<span class=json-key>efef</span>\\": <span class=json-string>\\"true\\"</span>,
       \\"<span class=json-key>efed</span>\\": <span class=json-string>\\"false\\"</span>,
       \\"<span class=json-key>efee</span>\\": <span class=json-boolean>false</span>,
-      \\"<span class=json-key>cccc</span>\\": <span class=json-string>\\"ab&quot;cd\\\\\\\\\\"</span>,
+      \\"<span class=json-key>cccc</span>\\": <span class=json-string>\\"ab\\\\&quot;cd\\\\\\\\\\"</span>,
       \\"<span class=json-key>dddd</span>\\": {
         \\"<span class=json-key>eeee</span>\\": <span class=json-value>1</span>,
         \\"<span class=json-key>ffff</span>\\": [
@@ -50,7 +50,7 @@ exports[`JSONPretty.jsx 1`] = `
       \\"<span class=json-key>efef</span>\\": <span class=json-string>\\"true\\"</span>,
       \\"<span class=json-key>efed</span>\\": <span class=json-string>\\"false\\"</span>,
       \\"<span class=json-key>efee</span>\\": <span class=json-boolean>false</span>,
-      \\"<span class=json-key>cccc</span>\\": <span class=json-string>\\"ab&quot;cd\\\\\\\\\\"</span>,
+      \\"<span class=json-key>cccc</span>\\": <span class=json-string>\\"ab\\\\&quot;cd\\\\\\\\\\"</span>,
       \\"<span class=json-key>dddd</span>\\": {
         \\"<span class=json-key>eeee</span>\\": <span class=json-value>1</span>,
         \\"<span class=json-key>ffff</span>\\": [
