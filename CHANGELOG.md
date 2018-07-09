@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.8"></a>
+## [1.7.8](https://github.com/chenckang/react-json-pretty/compare/v1.7.6...v1.7.8) (2018-07-09)
+
+
+### Bug Fixes
+
+* quote bugs ([19de3e7](https://github.com/chenckang/react-json-pretty/commit/19de3e7))
+
+
+
 <a name="1.7.7"></a>
 ## [1.7.7](https://github.com/chenckang/react-json-pretty/compare/v1.7.6...v1.7.7) (2018-07-09)
 
