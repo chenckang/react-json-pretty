@@ -2,6 +2,8 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    target: 'web',
+    mode: 'development',
     entry: {
         example: "./app/Example.jsx",
         common: ['react']
@@ -11,10 +13,9 @@ module.exports = {
         filename: "[name].js"
     },
     module: {
-        loaders: [
+        rules: [
             {test: /\.css$/, loader: "style-loader!css-loader"},
             {test: /\.jsx?$/, loader: "babel-loader"},
-            {test: /\.json$/, loader: "json-loader"},
             {test: /\.styl$/, loader: "style-loader!css-loader!stylus-loader"}
         ]
     },
@@ -24,5 +25,8 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         })
-    ]
+    ],
+    devServer: {
+        host: '0.0.0.0'
+    }
 };

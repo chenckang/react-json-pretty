@@ -2,21 +2,29 @@
   "name": "react-json-pretty",
   "version": "1.7.9",
   "description": "A code formatting tool for raw json data",
-  "main": "src/JSONPretty.js",
+  "main": "dist/JSONPretty.js",
+  "files": [
+    "dist",
+    "themes",
+    "types",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
-    "test": "jest --coverage --silent",
+    "test": "jest --verbose=true --coverage",
     "build": "npm run build-styl && npm run build-jsx",
-    "eslint": "eslint JSONPretty.jsx",
-    "precommit": "npm run build && npm run eslint",
+    "lint": "tslint --project tsconfig.json --config tslint.json './src/**/*.tsx'",
+    "precommit": "npm run build && npm run lint",
     "prepush": "npm test",
     "release": "standard-version",
     "patch": "npm run release -- --release-as patch",
-    "build-styl-monikai": "stylus --compress < JSONPretty.monikai.styl > src/JSONPretty.monikai.css",
-    "build-styl-1337": "stylus --compress < JSONPretty.1337.styl > src/JSONPretty.1337.css",
-    "build-styl-acai": "stylus --compress < JSONPretty.acai.styl > src/JSONPretty.acai.css",
-    "build-styl-adventure": "stylus --compress < JSONPretty.adventure_time.styl > src/JSONPretty.adventure_time.css",
+    "build-styl-monikai": "stylus --compress < src/JSONPretty.monikai.styl > themes/JSONPretty.monikai.css",
+    "build-styl-1337": "stylus --compress < src/JSONPretty.1337.styl > themes/JSONPretty.1337.css",
+    "build-styl-acai": "stylus --compress < src/JSONPretty.acai.styl > themes/JSONPretty.acai.css",
+    "build-styl-adventure": "stylus --compress < src/JSONPretty.adventure_time.styl > themes/JSONPretty.adventure_time.css",
     "build-styl": "npm run build-styl-monikai && npm run build-styl-1337 && npm run build-styl-acai && npm run build-styl-adventure",
-    "build-jsx": "babel --presets react --plugins 'transform-object-rest-spread' JSONPretty.jsx -d src"
+    "build-jsx": "tsc -p tsconfig.json"
   },
   "keywords": [
     "react",
@@ -32,30 +40,35 @@
     "react-dom": ">=15.0"
   },
   "devDependencies": {
-    "babel-cli": "~6.3.17",
-    "babel-core": "^6.3.26",
-    "babel-jest": "^19.0.0",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^6.10.3",
-    "husky": "^0.13.3",
-    "jest": "^19.0.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4",
+    "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.11",
+    "@types/prop-types": "^15.5.8",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "chai": "^4.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-test-renderer": "^16.7.0",
     "standard-version": "^4.4.0",
     "stylus": "^0.54.5",
-    "webpack": "^2.4.1"
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/chenckang/react-json-pretty"
   },
   "dependencies": {
-    "create-react-class": "^15.5.2"
+    "prop-types": "^15.6.2"
   },
   "jest": {
     "collectCoverageFrom": [

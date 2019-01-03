@@ -1,0 +1,35 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**",
+      "tests/**"
+    ]
+  },
+  "jsRules": {},
+  "rules": {
+    "max-line-length": {
+      "options": [
+        120
+      ]
+    },
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "functions": "never",
+        "singleline": "never"
+      }
+    ],
+    "no-console": [
+      false
+    ]
+  },
+  "rulesDirectory": []
+}

@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This is a react component that help you to prettify your json strings on the browser based on JavaScript. Presently, it provides a monikai theme style for you, and of course you are free to add your own theme if you like for this is pretty easy.
+This is a lightweight and tiny react component that helps you to prettify JSON data in the browser. 
 
 ## Install
 ```bash
@@ -37,16 +37,18 @@ Next, in your 'jsx' file use it like the following:
 
 Where `obj` is the JSON string or just a valid JavaScript object.
 
-And also you can import the style to the document, here is an example of using webpack loaders(`style!css!stylus`) to load style, You can visit [webpack](https://webpack.github.io/) to get more details:
+### Use themes with css-loader and webpack
+
+And also you can import the style to the document, here is an example of using webpack loaders(`style!css`) to load style, You can visit [webpack](https://webpack.github.io/) to get more details:
 
 ```javascript
-require('react-json-pretty/JSONPretty.monikai.styl');
+require('react-json-pretty/themes/JSONPretty.monikai.css');
 ```
 
-Or use the es2015
+Or use `import`
 
 ```javascript
-import 'react-json-pretty/JSONPretty.monikai.styl';
+import 'react-json-pretty/themes/JSONPretty.monikai.css';
 ```
 
 If you still don't get it, visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example).
@@ -55,16 +57,20 @@ Lastly, if you succeed so far the preview will look like the below:
 
 ![previews, you can also find it in the example folder](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png?raw=true)
 
-## Upgrade
+### Use themes with `theme` property
+
+theme={main: '', key: '', value: '', boolean: '', string: ''}
+
+## Others
 
 ### Formation
 
 Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space]])`. However, `JSON.stringify(value[, replacer[, space]])` has some optional parameters additionally such as `replacer` and `space`. so since the version 1.7.0, we extend react-json-pretty to support these two parameters.
 
-Here is the example:
+Here is an example:
 
 ```javascript
-<JSONPretty json={yourJSON} replacer={
+<JSONPretty json={yourJSONObject} replacer={
     function (key, value) {
         if (key === 'cccc') {
             value += '~~~abc';
@@ -79,11 +85,11 @@ Here is the example:
 </JSONPretty>
 ```
 
-The default value for property `replacer` is `null`，and `space` is `2`.
+** Note: The default value for property `replacer` is `null`，and `space` is `2`. **
 
 You can visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) to see the details.
 
-### Class
+### Custom `className`
 
 Since the version 1.7.0, we add `themeClassName` property for adding custom theme `className`，the default `className` for theme is `json-pretty`. but in case you want to have your own name, you use `themeClassName` property to modify it;
 
