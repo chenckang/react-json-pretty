@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This is a lightweight and tiny react component that helps you to prettify JSON data in the browser. 
+This is a lightweight and tiny react component that helps you to format and prettify the JSON data. 
 
 ## Install
 ```bash
@@ -16,61 +16,74 @@ npm install --save react-json-pretty
 
 ## Usage
 
-The usage is quite simple, assuming that you already have a react application of JavaScript. If you don't, visit [Facebook React](https://facebook.github.io/react/) to create one or just take a look at the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) provided.
+### Basic
+
+The usage is quite simple, assuming that you already have an application using React. If you don't, visit [Facebook React](https://reactjs.org/) to create one or take a look at the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) provided.
 
 Firstly, you need to require the react-json-pretty:
 
 ```javascript
 var JSONPretty = require('react-json-pretty');
 ```
-Or use the es2015 syntax with the help of babel:
+Or use the es2015 syntax with the help of tools like babel:
 
 ```javascript
 import JSONPretty from 'react-json-pretty';
 ```
 
-Next, in your 'jsx' file use it like the following:
+Next, use it in your React component:
 
-```javascript
-<JSONPretty id="json-pretty" json={obj}></JSONPretty>
+```jsx
+<JSONPretty id="json-pretty" data={yourData}></JSONPretty>
 ```
 
-Where `obj` is the JSON string or just a valid JavaScript object.
+Where the property `data` is the JSON string or just a plain JavaScript object.
 
-### Use themes with css-loader and webpack
+Lastly, you can add themes stated below.
 
-And also you can import the style to the document, here is an example of using webpack loaders(`style!css`) to load style, You can visit [webpack](https://webpack.github.io/) to get more details:
+** Note: if `yourData` is not a plain object, use `circular-json` or other similar tools to preprocess it before pass to `JSONPretty`.**
+
+### Themes
+
+#### Use themes with css-loader and webpack
+
+And also you can import the style to the document, here is an example of using webpack loaders(`style!css`) to load style, You can visit [webpack](https://webpack.js.org/) to get more details:
 
 ```javascript
-require('react-json-pretty/themes/JSONPretty.monikai.css');
+require('react-json-pretty/themes/monikai.css');
 ```
 
-Or use `import`
+Or
 
 ```javascript
-import 'react-json-pretty/themes/JSONPretty.monikai.css';
+import 'react-json-pretty/themes/monikai.css';
 ```
 
-If you still don't get it, visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example).
+#### Use themes with `theme` property
 
-Lastly, if you succeed so far the preview will look like the below:
+If you don't want to use css, `theme` property is also available. Properties of `theme` will be used as `style` property of the target DOM element.
+
+```jsx
+var JSONPrettyMon = require('react-json-pretty/dist/monikai');
+<JSONPretty data={yourJSON} theme={JSONPrettyMon}></JSONPretty>
+```
+
+Visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) to get some details.
+
+The preview is as below:
 
 ![previews, you can also find it in the example folder](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png?raw=true)
-
-### Use themes with `theme` property
-
-theme={main: '', key: '', value: '', boolean: '', string: ''}
 
 ## Others
 
 ### Formation
 
-Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space]])`. However, `JSON.stringify(value[, replacer[, space]])` has some optional parameters additionally such as `replacer` and `space`. so since the version 1.7.0, we extend react-json-pretty to support these two parameters.
+Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space]])`. However, `JSON.stringify(value[, replacer[, space]])` has some optional parameters additionally such as `replacer` and `space`. This is also available in `react-json-pretty`.
 
 Here is an example:
 
-```javascript
-<JSONPretty json={yourJSONObject} replacer={
+```jsx
+<JSONPretty data={yourData} replacer={
     function (key, value) {
         if (key === 'cccc') {
             value += '~~~abc';
@@ -85,29 +98,82 @@ Here is an example:
 </JSONPretty>
 ```
 
-** Note: The default value for property `replacer` is `null`，and `space` is `2`. **
+*** Note: The default value for property `replacer` is `null`，and `space` is `2`. ***
 
 You can visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) to see the details.
 
-### Custom `className`
+### Custom `themeClassName`
 
-Since the version 1.7.0, we add `themeClassName` property for adding custom theme `className`，the default `className` for theme is `json-pretty`. but in case you want to have your own name, you use `themeClassName` property to modify it;
+Your can also define your custome `themeClassName`, the default value is `__json-pretty__`.
 
-```javascript
-// The final className will be 'test-class custom-json-pretty'
-<JSONPretty className="test-class" themeClassName="custom-json-pretty"
-    json={yourjson}
->
-</JSONPretty>
+*** Note: this may lead to the usage of default themes provided with css being invalid. ***
+
+```jsx
+// The final className will be 'custom-json-pretty'
+<JSONPretty themeClassName="custom-json-pretty" data={yourData}></JSONPretty>
 ```
 
 ### Themes
 
-Since the version 1.3.0, we have added more color themes to this package, including "Adventure Time", acai and 1337, to provide users more ready-made options.
+There are some default themes provided including `"Adventure Time"`, `acai` and `1337`, to provide users more ready-made options.
 
 ![Adventure Time](https://github.com/chenckang/react-json-pretty/blob/master/example/at.png?raw=true)
 ![1337](https://github.com/chenckang/react-json-pretty/blob/master/example/1337.png?raw=true)
 ![acai](https://github.com/chenckang/react-json-pretty/blob/master/example/acai.png?raw=true)
+
+All the css theme files are placed in the `themes` folder.
+
+It is also prossible to define a custom theme:
+
+#### Using `themes` property
+
+Here is the schema:
+
+```ts
+{
+  main?: string,
+  key?: string,
+  string?: string,
+  value?: string,
+  boolean?: string'
+}
+```
+
+For example: 
+
+```js
+{
+  main: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
+  key: 'color:#f92672;',
+  string: 'color:#fd971f;',
+  value: 'color:#a6e22e;',
+  boolean: 'color:#ac81fe;',
+}
+```
+
+#### Using css file
+
+For example the `monokai.styl`:
+
+```
+.__json-pretty__ 
+  line-height 1.3
+  color rgba(248,248,242,1)
+  background #1e1e1e
+  overflow auto
+
+  .__json-key__
+    color rgba(255,94,94,1)
+
+  .__json-value__
+    color rgba(253,176,130,1)
+
+  .__json-string__
+    color rgba(233,253,172,1)
+
+  .__json-boolean__
+    color rgba(102,153,204,1)
+```
 
 ## License
 

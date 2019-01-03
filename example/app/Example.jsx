@@ -21,11 +21,16 @@ var obj2 = {
 };
 
 var JSONPretty = require('react-json-pretty');
-require('react-json-pretty/themes/JSONPretty.adventure_time.css');
+require('react-json-pretty/themes/monikai.css');
 require('../assets/custom.styl');
 obj.text = true;
 obj.abc = false;
 obj.number = 1234567890;
+
+var JSONPretty1337 = require('react-json-pretty/dist/1337');
+var JSONPrettyAcai = require('react-json-pretty/dist/acai');
+var JSONPrettyAdv = require('react-json-pretty/dist/adventure_time');
+var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
 document.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 var obj3 = CircularJSON.stringify(document);
@@ -34,27 +39,10 @@ class Tick extends React.Component {
   constructor() {
     super();
     this.themes = [
-      {
-        main: 'background-color: #999',
-        key: 'color:rgba(255,94,94,1);',
-        value: 'color:rgba(253,176,130,1);',
-        string: 'color:rgba(233,253,172,1);',
-        boolean: 'rgba(102,153,204,1);',
-      },
-      {
-        main: 'background-color:rgba(116,128,150,1)',
-        key: 'color:rgba(181,83,191,1);',
-        value: 'color:rgba(147,163,191,1);',
-        string: 'color:rgba(251,168,86,1);',
-        boolean: 'color:rgba(68,138,169,1);',
-      },
-      {
-        main: 'background-color#1e1e1e;color:rgba(245,187,18,1)',
-        key: 'color:rgba(211,66,46,1);',
-        value: 'color:rgba(191,215,219,1);',
-        string: 'color:rgba(127,214,250,1);',
-        boolean: 'color:rgba(75,174,22,1);',
-      }
+      JSONPretty1337,
+      JSONPrettyAcai,
+      JSONPrettyAdv,
+      JSONPrettyMon,
     ];
     this.state = {
       acc: 0,
@@ -76,18 +64,22 @@ class Tick extends React.Component {
       this.setState({
         acc: this.state.acc + 1,
       });
-    }, 3000);
+    }, 1000);
   }
 }
 
 ReactDOM.render(
   <div>
     <div>
+      <h4>Use default monikai theme:</h4>
       <JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={obj}></JSONPretty>
     </div>
     <div>
+      <h4>Switch between themes:</h4>
       <Tick></Tick>
+      <h4>Custom themeClassName:</h4>
       <JSONPretty data={obj2} space="4" style={{backgroundColor: '#eee'}} themeClassName="abc"></JSONPretty>
+      <h4>Custom formation:</h4>
       <JSONPretty data={obj2} replacer={
         function (key, value) {
           if (key === 'cccc') {
@@ -101,8 +93,10 @@ ReactDOM.render(
       } space="2"></JSONPretty>
     </div>
     <div>
+      <h4>Complex object:</h4>
       <JSONPretty data={obj3}></JSONPretty>
       <JSONPretty className="test-3" data={obj3}></JSONPretty>
+      <h4>Custom theme:</h4>
       <JSONPretty className="test-3" themeClassName="custom-json-pretty" data={obj3}></JSONPretty>
     </div>
   </div>,
