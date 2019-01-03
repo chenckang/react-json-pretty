@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "jest --verbose=true --coverage",
-    "build": "npm run build-styl && npm run build-jsx",
+    "build": "mkdir -p dist && mkdir -p themes && npm run build-styl && npm run build-jsx",
     "lint": "tslint --project tsconfig.json --config tslint.json './src/**/*.tsx'",
     "precommit": "npm run build && npm run lint",
     "prepush": "npm test",
