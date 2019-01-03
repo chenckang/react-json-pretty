@@ -41,7 +41,7 @@ Where the property `data` is the JSON string or just a plain JavaScript object.
 
 Lastly, you can add themes stated below.
 
-** Note: if `yourData` is not a plain object, use `circular-json` or other similar tools to preprocess it before pass to `JSONPretty`.**
+***Note: if `yourData` is not a plain object, use `circular-json` or other similar tools to preprocess it before passed to `JSONPretty`.***
 
 ### Themes
 
@@ -98,7 +98,7 @@ Here is an example:
 </JSONPretty>
 ```
 
-*** Note: The default value for property `replacer` is `null`，and `space` is `2`. ***
+***Note: The default value for property `replacer` is `null`，and `space` is `2`.***
 
 You can visit the [example](https://github.com/chenckang/react-json-pretty/tree/master/example) to see the details.
 
@@ -106,7 +106,7 @@ You can visit the [example](https://github.com/chenckang/react-json-pretty/tree/
 
 Your can also define your custome `themeClassName`, the default value is `__json-pretty__`.
 
-*** Note: this may lead to the usage of default themes provided with css being invalid. ***
+***Note: this may lead to the usage of default themes provided with css being invalid.***
 
 ```jsx
 // The final className will be 'custom-json-pretty'
@@ -129,7 +129,7 @@ It is also prossible to define a custom theme:
 
 Here is the schema:
 
-```ts
+```
 {
   main?: string,
   key?: string,
