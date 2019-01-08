@@ -41,7 +41,7 @@ Where the property `data` is the JSON string or just a plain JavaScript object.
 
 Lastly, you can add themes stated below.
 
-***Note: if `yourData` is not a plain object, use `circular-json` or other similar tools to preprocess it before passed to `JSONPretty`.***
+***Note: if `yourData` is not a plain object, use `circular-json` or other similar tools to preprocess it before being passed to `JSONPretty`.***
 
 ### Themes
 
