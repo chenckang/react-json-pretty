@@ -222,8 +222,6 @@ test('invalid json', () => {
 test('invalid space', () => {
   const box = shallow(<JSONPretty json={'12345'} space={NaN}></JSONPretty>);
 
-  console.log(box.html());
-  
   `<div><pre class=__json-pretty__><span class=__json-value__>12345</span></pre></div>`
     .split('\n')
     .map((line) => line.trim())
@@ -287,4 +285,10 @@ test('complex object with format', () => {
     .forEach((line) => {
       expect(box.html()).to.include(line);
     });
+});
+
+test('xss pretection', () => {
+  const data = `{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`;
+  const box = shallow(<JSONPretty json={data}></JSONPretty>);
+  expect(box.html()).to.eql('<div><pre class=__json-pretty__>{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
 });

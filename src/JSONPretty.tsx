@@ -12,8 +12,31 @@ interface IProps {
   silent?: boolean;
 }
 
+function getStyleValue(name: string, theme: ITheme): string {
+  return theme ? theme[name] || '' : '';
+}
+
 function getStyle(name: string, theme: ITheme): string {
-  return theme ? theme[name] ? ` style="${theme[name]}"` : '' : '';
+  const value = getStyleValue(name, theme);
+  return value ? ` style="${value}"` : '';
+}
+
+const xssmap: {[key: string]: string} = {
+  '"': '&quot;',
+  '\'': '&apos;',
+  '&': '&amp;',
+  '>': '&gt;',
+  '<': '&lt',
+};
+
+function xss(s: string): string {
+  if (!s) {
+    return s;
+  }
+
+  return s.replace(/<|>|&|"|'/g, (m) => {
+    return xssmap[m];
+  });
 }
 
 class JSONPretty extends React.Component<IProps, {}> {
@@ -52,7 +75,7 @@ class JSONPretty extends React.Component<IProps, {}> {
         return(
           <div {...rest} dangerouslySetInnerHTML={
             {__html:
-              `<pre class=${themeClassName}${getStyle('main', theme)}>${obj}</pre>`
+              `<pre class=${themeClassName}${getStyle('main', theme)}>${xss(obj)}</pre>`
             }
           }>
           </div>

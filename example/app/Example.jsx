@@ -99,6 +99,10 @@ ReactDOM.render(
       <h4>Custom theme:</h4>
       <JSONPretty className="test-3" themeClassName="custom-json-pretty" data={obj3}></JSONPretty>
     </div>
+    <div>
+      <h4>XSS pretection</h4>
+      <JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={{data: "<img onerror='alert(document.cookie)' src='invalid-image' />"}}></JSONPretty>
+    </div>
   </div>,
   document.getElementById('example')
 );
