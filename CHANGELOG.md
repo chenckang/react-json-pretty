@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/chenckang/react-json-pretty/compare/v2.0.0...v2.0.1) (2019-03-13)
+
+
+### Bug Fixes
+
+* xss security issue under invalid json data ([66526b9](https://github.com/chenckang/react-json-pretty/commit/66526b9))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/chenckang/react-json-pretty/compare/v1.7.9...v2.0.0) (2019-01-03)
 
