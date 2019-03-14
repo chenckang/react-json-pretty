@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/chenckang/react-json-pretty/compare/v2.0.1...v2.1.0) (2019-03-14)
+
+
+### Features
+
+* add onError hook for JSON.parse ([5b883c8](https://github.com/chenckang/react-json-pretty/commit/5b883c8))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/chenckang/react-json-pretty/compare/v2.0.0...v2.0.1) (2019-03-13)
 
