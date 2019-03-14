@@ -10,6 +10,7 @@ interface IProps {
   themeClassName?: string;
   theme?: ITheme;
   silent?: boolean;
+  onError?: (e: Error) => void;
 }
 
 function getStyleValue(name: string, theme: ITheme): string {
@@ -48,6 +49,7 @@ class JSONPretty extends React.Component<IProps, {}> {
     space: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     theme: PropTypes.object,
     themeClassName: PropTypes.string,
+    onError: PropTypes.func
   };
 
   public static defaultProps = {
@@ -59,7 +61,7 @@ class JSONPretty extends React.Component<IProps, {}> {
   };
 
   public render() {
-    const { json, data, replacer, space, themeClassName, theme, silent, ...rest } = this.props;
+    const { json, data, replacer, space, themeClassName, theme, onError, silent, ...rest } = this.props;
 
     let obj = data || json;
 
@@ -70,6 +72,10 @@ class JSONPretty extends React.Component<IProps, {}> {
       } catch (e) {
         if (!silent) {
           console.warn(`[react-json-pretty]: ${e.message}`);
+        }
+
+        if (onError) {
+          onError(e);
         }
 
         return(

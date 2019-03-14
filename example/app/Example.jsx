@@ -101,7 +101,7 @@ ReactDOM.render(
     </div>
     <div>
       <h4>XSS pretection</h4>
-      <JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={{data: "<img onerror='alert(document.cookie)' src='invalid-image' />"}}></JSONPretty>
+      <JSONPretty id="json-pretty" data={`{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`} onError={alert}></JSONPretty>
     </div>
   </div>,
   document.getElementById('example')

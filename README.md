@@ -76,6 +76,14 @@ The preview is as below:
 
 ## Others
 
+### Error
+
+Use `onError` function property to get `JSON.parse` errors.
+
+```jsx
+<JSONPretty data={invalid} onError={e => console.error(e)}></JSONPretty>
+```
+
 ### Formation
 
 Actually, react-json-pretty is based on `JSON.stringify(value[, replacer[, space]])`. However, `JSON.stringify(value[, replacer[, space]])` has some optional parameters additionally such as `replacer` and `space`. This is also available in `react-json-pretty`.

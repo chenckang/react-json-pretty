@@ -6,12 +6,10 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest",
   },
   "testRegex": "test\\.tsx?$",
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "js",
-    "jsx"
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/tests/"
   ],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
-  "setupTestFrameworkScriptFile": "<rootDir>/tests/setupEnzyme.ts",
+  "setupFilesAfterEnv": ["<rootDir>/tests/setupEnzyme.ts"],
 }

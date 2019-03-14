@@ -1,13 +1,11 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { expect } from 'chai';
-
 import JSONPretty from '../src/JSONPretty';
 
 test('simple', () => {
   const box = shallow(<JSONPretty json={'123'}></JSONPretty>);
-  expect(box.html()).to.equal('<div><pre class=__json-pretty__><span class=__json-value__>123</span></pre></div>');
+  expect(box.html()).toEqual('<div><pre class=__json-pretty__><span class=__json-value__>123</span></pre></div>');
 });
 
 test('complex object', () => {
@@ -47,7 +45,7 @@ test('complex object', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
@@ -88,7 +86,7 @@ test('complex string', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
@@ -144,7 +142,7 @@ test('complex string with theme', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
@@ -199,13 +197,13 @@ test('complex string with theme missing boolean theme', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
 test('invalid', () => {
   const box = shallow(<JSONPretty json={undefined} silent={false}></JSONPretty>);
-  expect(box.html()).to.equal('<div><pre class=__json-pretty__></pre></div>');
+  expect(box.html()).toEqual('<div><pre class=__json-pretty__></pre></div>');
 });
 
 test('invalid json', () => {
@@ -215,7 +213,7 @@ test('invalid json', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
@@ -226,7 +224,7 @@ test('invalid space', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
@@ -283,12 +281,16 @@ test('complex object with format', () => {
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
-      expect(box.html()).to.include(line);
+      expect(box.html()).toMatch(line);
     });
 });
 
 test('xss pretection', () => {
+  expect.assertions(2);
+  function onError(e: Error) {
+    expect(e).toBeInstanceOf(SyntaxError);
+  }
   const data = `{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`;
-  const box = shallow(<JSONPretty json={data}></JSONPretty>);
-  expect(box.html()).to.eql('<div><pre class=__json-pretty__>{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
+  const box = shallow(<JSONPretty json={data} onError={onError}></JSONPretty>);
+  expect(box.html()).toEqual('<div><pre class=__json-pretty__>{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
 });
