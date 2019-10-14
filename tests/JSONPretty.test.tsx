@@ -5,7 +5,7 @@ import JSONPretty from '../src/JSONPretty';
 
 test('simple', () => {
   const box = shallow(<JSONPretty json={'123'}></JSONPretty>);
-  expect(box.html()).toEqual('<div><pre class=__json-pretty__><span class=__json-value__>123</span></pre></div>');
+  expect(box.html()).toEqual('<div><pre class="__json-pretty__"><span class="__json-value__">123</span></pre></div>');
 });
 
 test('complex object', () => {
@@ -26,19 +26,19 @@ test('complex object', () => {
     }
   }}></JSONPretty>);
 
-  `<div><pre class=__json-pretty__>{
-    "<span class=__json-key__>aaaa</span>": <span class=__json-value__>1</span>,
-    "<span class=__json-key__>bb:bb</span>": <span class=__json-boolean__>true</span>,
-    "<span class=__json-key__>cccc</span>": <span class=__json-string__>"ab\\&quot;cd\\\\"</span>,
-    "<span class=__json-key__>:i\\&quot;iii:</span>": <span class=__json-string__>":ii:ii"</span>,
-    "<span class=__json-key__>dddd</span>": {
-      "<span class=__json-key__>eeee</span>": <span class=__json-value__>1</span>,
-      "<span class=__json-key__>ffff</span>": [
+  `<div><pre class="__json-pretty__">{
+    "<span class="__json-key__">aaaa</span>": <span class="__json-value__">1</span>,
+    "<span class="__json-key__">bb:bb</span>": <span class="__json-boolean__">true</span>,
+    "<span class="__json-key__">cccc</span>": <span class="__json-string__">"ab\\&quot;cd\\\\"</span>,
+    "<span class="__json-key__">:i\\&quot;iii:</span>": <span class="__json-string__">":ii:ii"</span>,
+    "<span class="__json-key__">dddd</span>": {
+      "<span class="__json-key__">eeee</span>": <span class="__json-value__">1</span>,
+      "<span class="__json-key__">ffff</span>": [
         {
-          "<span class=__json-key__>gggg</span>": <span class=__json-value__>3</span>
+          "<span class="__json-key__">gggg</span>": <span class="__json-value__">3</span>
         },
-        <span class=__json-value__>2</span>,
-        <span class=__json-string__>"str:ing"</span>
+        <span class="__json-value__">2</span>,
+        <span class="__json-string__">"str:ing"</span>
       ]
     }
   }</pre></div>`
@@ -67,19 +67,19 @@ test('complex string', () => {
     }
   })}></JSONPretty>);
 
-  `<div><pre class=__json-pretty__>{
-    "<span class=__json-key__>aaaa</span>": <span class=__json-value__>1</span>,
-    "<span class=__json-key__>bb:bb</span>": <span class=__json-boolean__>true</span>,
-    "<span class=__json-key__>cccc</span>": <span class=__json-string__>"ab\\&quot;cd\\\\"</span>,
-    "<span class=__json-key__>:i\\&quot;iii:</span>": <span class=__json-string__>":ii:ii"</span>,
-    "<span class=__json-key__>dddd</span>": {
-      "<span class=__json-key__>eeee</span>": <span class=__json-value__>1</span>,
-      "<span class=__json-key__>ffff</span>": [
+  `<div><pre class="__json-pretty__">{
+    "<span class="__json-key__">aaaa</span>": <span class="__json-value__">1</span>,
+    "<span class="__json-key__">bb:bb</span>": <span class="__json-boolean__">true</span>,
+    "<span class="__json-key__">cccc</span>": <span class="__json-string__">"ab\\&quot;cd\\\\"</span>,
+    "<span class="__json-key__">:i\\&quot;iii:</span>": <span class="__json-string__">":ii:ii"</span>,
+    "<span class="__json-key__">dddd</span>": {
+      "<span class="__json-key__">eeee</span>": <span class="__json-value__">1</span>,
+      "<span class="__json-key__">ffff</span>": [
         {
-          "<span class=__json-key__>gggg</span>": <span class=__json-value__>3</span>
+          "<span class="__json-key__">gggg</span>": <span class="__json-value__">3</span>
         },
-        <span class=__json-value__>2</span>,
-        <span class=__json-string__>"str:ing"</span>
+        <span class="__json-value__">2</span>,
+        <span class="__json-string__">"str:ing"</span>
       ]
     }
   }</pre></div>`
@@ -123,19 +123,19 @@ test('complex string with theme', () => {
     }
   ></JSONPretty>);
 
-  `<div><pre class=__json-pretty__ style="background-color#1e1e1e;color:rgba(245,187,18,1)">{
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">aaaa</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">1</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">bb:bb</span>": <span class=__json-boolean__ style="color:rgba(75,174,22,1);">true</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">cccc</span>": <span class=__json-string__ style="color:rgba(127,214,250,1);">"ab\\&quot;cd\\\\"</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">:i\\&quot;iii:</span>": <span class=__json-string__ style="color:rgba(127,214,250,1);">":ii:ii"</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">dddd</span>": {
-      "<span class=__json-key__ style="color:rgba(211,66,46,1);">eeee</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">1</span>,
-      "<span class=__json-key__ style="color:rgba(211,66,46,1);">ffff</span>": [
+  `<div><pre class="__json-pretty__" style="background-color#1e1e1e;color:rgba(245,187,18,1)">{
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">aaaa</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">1</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">bb:bb</span>": <span class="__json-boolean__" style="color:rgba(75,174,22,1);">true</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">cccc</span>": <span class="__json-string__" style="color:rgba(127,214,250,1);">"ab\\&quot;cd\\\\"</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">:i\\&quot;iii:</span>": <span class="__json-string__" style="color:rgba(127,214,250,1);">":ii:ii"</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">dddd</span>": {
+      "<span class="__json-key__" style="color:rgba(211,66,46,1);">eeee</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">1</span>,
+      "<span class="__json-key__" style="color:rgba(211,66,46,1);">ffff</span>": [
         {
-          "<span class=__json-key__ style="color:rgba(211,66,46,1);">gggg</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">3</span>
+          "<span class="__json-key__" style="color:rgba(211,66,46,1);">gggg</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">3</span>
         },
-        <span class=__json-value__ style="color:rgba(191,215,219,1);">2</span>,
-        <span class=__json-string__ style="color:rgba(127,214,250,1);">"str:ing"</span>
+        <span class="__json-value__" style="color:rgba(191,215,219,1);">2</span>,
+        <span class="__json-string__" style="color:rgba(127,214,250,1);">"str:ing"</span>
       ]
     }
   }</pre></div>`
@@ -178,19 +178,19 @@ test('complex string with theme missing boolean theme', () => {
     }
   ></JSONPretty>);
 
-  `<div><pre class=__json-pretty__ style="background-color#1e1e1e;color:rgba(245,187,18,1)">{
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">aaaa</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">1</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">bb:bb</span>": <span class=__json-boolean__>true</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">cccc</span>": <span class=__json-string__ style="color:rgba(127,214,250,1);">"ab\\&quot;cd\\\\"</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">:i\\&quot;iii:</span>": <span class=__json-string__ style="color:rgba(127,214,250,1);">":ii:ii"</span>,
-    "<span class=__json-key__ style="color:rgba(211,66,46,1);">dddd</span>": {
-      "<span class=__json-key__ style="color:rgba(211,66,46,1);">eeee</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">1</span>,
-      "<span class=__json-key__ style="color:rgba(211,66,46,1);">ffff</span>": [
+  `<div><pre class="__json-pretty__" style="background-color#1e1e1e;color:rgba(245,187,18,1)">{
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">aaaa</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">1</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">bb:bb</span>": <span class="__json-boolean__">true</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">cccc</span>": <span class="__json-string__" style="color:rgba(127,214,250,1);">"ab\\&quot;cd\\\\"</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">:i\\&quot;iii:</span>": <span class="__json-string__" style="color:rgba(127,214,250,1);">":ii:ii"</span>,
+    "<span class="__json-key__" style="color:rgba(211,66,46,1);">dddd</span>": {
+      "<span class="__json-key__" style="color:rgba(211,66,46,1);">eeee</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">1</span>,
+      "<span class="__json-key__" style="color:rgba(211,66,46,1);">ffff</span>": [
         {
-          "<span class=__json-key__ style="color:rgba(211,66,46,1);">gggg</span>": <span class=__json-value__ style="color:rgba(191,215,219,1);">3</span>
+          "<span class="__json-key__" style="color:rgba(211,66,46,1);">gggg</span>": <span class="__json-value__" style="color:rgba(191,215,219,1);">3</span>
         },
-        <span class=__json-value__ style="color:rgba(191,215,219,1);">2</span>,
-        <span class=__json-string__ style="color:rgba(127,214,250,1);">"str:ing"</span>
+        <span class="__json-value__" style="color:rgba(191,215,219,1);">2</span>,
+        <span class="__json-string__" style="color:rgba(127,214,250,1);">"str:ing"</span>
       ]
     }
   }</pre></div>`
@@ -203,13 +203,13 @@ test('complex string with theme missing boolean theme', () => {
 
 test('invalid', () => {
   const box = shallow(<JSONPretty json={undefined} silent={false}></JSONPretty>);
-  expect(box.html()).toEqual('<div><pre class=__json-pretty__></pre></div>');
+  expect(box.html()).toEqual('<div><pre class="__json-pretty-error__"></pre></div>');
 });
 
 test('invalid json', () => {
   const box = shallow(<JSONPretty json={'12345,78907'}></JSONPretty>);
 
-  `<div><pre class=__json-pretty__>12345,78907</pre></div>`
+  `<div><pre class="__json-pretty-error__">12345,78907</pre></div>`
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
@@ -220,7 +220,7 @@ test('invalid json', () => {
 test('invalid space', () => {
   const box = shallow(<JSONPretty json={'12345'} space={NaN}></JSONPretty>);
 
-  `<div><pre class=__json-pretty__><span class=__json-value__>12345</span></pre></div>`
+  `<div><pre class="__json-pretty__"><span class="__json-value__">12345</span></pre></div>`
     .split('\n')
     .map((line) => line.trim())
     .forEach((line) => {
@@ -262,19 +262,19 @@ test('complex object with format', () => {
     space='2'
   ></JSONPretty>);
 
-  `<div><pre class=__json-pretty__>{
-    "<span class=__json-key__>aaaa</span>": <span class=__json-value__>1</span>,
-    "<span class=__json-key__>bb:bb</span>": <span class=__json-boolean__>true</span>,
-    "<span class=__json-key__>cccc</span>": <span class=__json-string__>"ab\\&quot;cd\\\\~~~abc"</span>,
-    "<span class=__json-key__>:i\\&quot;iii:</span>": <span class=__json-string__>":ii:ii"</span>,
-    "<span class=__json-key__>dddd</span>": {
-      "<span class=__json-key__>eeee</span>": <span class=__json-value__>1</span>,
-      "<span class=__json-key__>ffff</span>": [
+  `<div><pre class="__json-pretty__">{
+    "<span class="__json-key__">aaaa</span>": <span class="__json-value__">1</span>,
+    "<span class="__json-key__">bb:bb</span>": <span class="__json-boolean__">true</span>,
+    "<span class="__json-key__">cccc</span>": <span class="__json-string__">"ab\\&quot;cd\\\\~~~abc"</span>,
+    "<span class="__json-key__">:i\\&quot;iii:</span>": <span class="__json-string__">":ii:ii"</span>,
+    "<span class="__json-key__">dddd</span>": {
+      "<span class="__json-key__">eeee</span>": <span class="__json-value__">1</span>,
+      "<span class="__json-key__">ffff</span>": [
         {
-          "<span class=__json-key__>gggg</span>": <span class=__json-value__>30</span>
+          "<span class="__json-key__">gggg</span>": <span class="__json-value__">30</span>
         },
-        <span class=__json-value__>2</span>,
-        <span class=__json-string__>"str:ing"</span>
+        <span class="__json-value__">2</span>,
+        <span class="__json-string__">"str:ing"</span>
       ]
     }
   }</pre></div>`
@@ -291,6 +291,35 @@ test('xss pretection', () => {
     expect(e).toBeInstanceOf(SyntaxError);
   }
   const data = `{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`;
-  const box = shallow(<JSONPretty json={data} onError={onError}></JSONPretty>);
-  expect(box.html()).toEqual('<div><pre class=__json-pretty__>{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
+  const box = shallow(<JSONPretty json={data} onJSONPrettyError={onError}></JSONPretty>);
+  expect(box.html()).toEqual('<div><pre class="__json-pretty-error__">{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
+});
+
+test('onError deprecated', () => {
+  expect.assertions(2);
+  function onError(e: Error) {
+    expect(e).toBeInstanceOf(SyntaxError);
+  }
+  const data = `{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`;
+  const J = JSONPretty as any;
+  const box = shallow(<J json={data} onError={onError}></J>);
+  expect(box.html()).toEqual('<div><pre class="__json-pretty-error__">{data: &quot;&ltimg onerror=&apos;alert(document.cookie)&apos; src=&apos;invalid-image&apos; /&gt;}</pre></div>');
+});
+
+test('extra style', () => {
+  const box1 = shallow(<JSONPretty json={undefined} errorStyle="abc:1"></JSONPretty>);
+  expect(box1.html()).toEqual('<div><pre class="__json-pretty-error__" style="abc:1;"></pre></div>');
+  const box2 = shallow(<JSONPretty json={{}} errorStyle="abc:1" mainStyle="efg:1"></JSONPretty>);
+  expect(box2.html()).toMatch('<div><pre class="__json-pretty__" style="efg:1;">{}</pre></div>');
+  const box3 = shallow(<JSONPretty json={{"a":1,b:true,c:"2222"}} errorStyle="abc:1" mainStyle="efg:1" booleanStyle="124" valueStyle="xxx" keyStyle="uuu" stringStyle="sss"></JSONPretty>);
+  `<div><pre class="__json-pretty__" style="efg:1;">{
+    "<span class="__json-key__" style="uuu;">a</span>": <span class="__json-value__" style="xxx;">1</span>,
+    "<span class="__json-key__" style="uuu;">b</span>": <span class="__json-boolean__" style="124;">true</span>,
+    "<span class="__json-key__" style="uuu;">c</span>": <span class="__json-string__" style="sss;">"2222"</span>
+  }</pre></div>`
+  .split('\n')
+  .map((line) => line.trim())
+  .forEach((line) => {
+    expect(box3.html()).toMatch(line);
+  });
 });

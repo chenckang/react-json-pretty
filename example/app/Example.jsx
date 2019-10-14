@@ -20,6 +20,8 @@ var obj2 = {
   }
 };
 
+const invalid = '{aaaaaaaaaa}';
+
 var JSONPretty = require('react-json-pretty');
 require('react-json-pretty/themes/monikai.css');
 require('../assets/custom.styl');
@@ -50,8 +52,10 @@ class Tick extends React.Component {
   }
   
   render() {
+    const tar = this.state.acc % 3 === 0 ? invalid : obj2;
+    
     return (
-      <JSONPretty data={obj2} 
+      <JSONPretty data={tar} 
         theme={
           this.themes[this.state.acc % this.themes.length]
         }
@@ -72,7 +76,7 @@ ReactDOM.render(
   <div>
     <div>
       <h4>Use default monikai theme:</h4>
-      <JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={obj}></JSONPretty>
+      <JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={obj} mainStyle="padding:1em" valueStyle="font-size:1.5em"></JSONPretty>
     </div>
     <div>
       <h4>Switch between themes:</h4>
@@ -100,9 +104,15 @@ ReactDOM.render(
       <JSONPretty className="test-3" themeClassName="custom-json-pretty" data={obj3}></JSONPretty>
     </div>
     <div>
-      <h4>XSS pretection</h4>
-      <JSONPretty id="json-pretty" data={`{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />}`} onError={alert}></JSONPretty>
+      <h4>XSS pretection should not alert cookie info</h4>
+      <JSONPretty id="json-pretty" data={`{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />"}`}></JSONPretty>
     </div>
+    <div>
+      <h4>ONError should work</h4>
+      <JSONPretty id="json-pretty" data={`{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />"}`} onJSONPrettyError={(e) => alert('onJSONPrettyError should work: ' + e)}></JSONPretty>
+      <JSONPretty id="json-pretty" data={`{data: \"<img onerror='alert(document.cookie)' src='invalid-image' />"}`} onError={(e) => alert('onError should work with deprecated: ' + e)}></JSONPretty>
+    </div>
+
   </div>,
   document.getElementById('example')
 );

@@ -78,10 +78,10 @@ The preview is as below:
 
 ### Error
 
-Use `onError` function property to get `JSON.parse` errors.
+Use `onJSONPrettyError` function property to get `JSON.parse` errors.
 
 ```jsx
-<JSONPretty data={invalid} onError={e => console.error(e)}></JSONPretty>
+<JSONPretty data={invalid} onJSONPrettyError={e => console.error(e)}></JSONPretty>
 ```
 
 ### Formation
@@ -121,7 +121,7 @@ Your can also define your custome `themeClassName`, the default value is `__json
 <JSONPretty themeClassName="custom-json-pretty" data={yourData}></JSONPretty>
 ```
 
-### Themes
+### Custom Themes
 
 There are some default themes provided including `"Adventure Time"`, `acai` and `1337`, to provide users more ready-made options.
 
@@ -133,13 +133,33 @@ All the css theme files are placed in the `themes` folder.
 
 It is also prossible to define a custom theme:
 
+#### Using ***type***Style property
+
+This can make control the extra styles of the specific type of value: 
+
+```
+mainStyle?: string;
+keyStyle?: string;
+valueStyle?: string;
+booleanStyle?: string;
+stringStyle?: string;
+errorStyle: string;
+```
+
+For example: set padding of the main area and the font size the normal value
+
+```jsx
+<JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={youJSON} mainStyle="padding:1em" valueStyle="font-size:1.5em"></JSONPretty>
+```
+
 #### Using `themes` property
 
-Here is the schema:
+Here is the property schema:
 
 ```
 {
   main?: string,
+  error?: string,
   key?: string,
   string?: string,
   value?: string,
@@ -152,6 +172,7 @@ For example:
 ```js
 {
   main: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
+  error: 'line-height:1.3;color:#66d9ef;background:#272822;overflow:auto;',
   key: 'color:#f92672;',
   string: 'color:#fd971f;',
   value: 'color:#a6e22e;',
@@ -181,6 +202,12 @@ For example the `monokai.styl`:
 
   .__json-boolean__
     color rgba(102,153,204,1)
+
+.__json-pretty-error__
+  line-height 1.3
+  color rgba(248,248,242,1)
+  background #1e1e1e
+  overflow auto
 ```
 
 ## License

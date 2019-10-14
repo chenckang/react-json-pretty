@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 interface ITheme {[key: string]: string; }
-interface IProps {
+interface IProps extends React.HTMLAttributes<HTMLElement> {
   json?: any;
   data?: any;
   replacer?: (key: string, value: any) => any | null;
@@ -10,15 +10,23 @@ interface IProps {
   themeClassName?: string;
   theme?: ITheme;
   silent?: boolean;
-  onError?: (e: Error) => void;
+  onJSONPrettyError?: (e: Error) => void;
+  mainStyle?: string;
+  keyStyle?: string;
+  stringStyle?: string;
+  valueStyle?: string;
+  booleanStyle?: string;
+  errorStyle?: string;
 }
 
-function getStyleValue(name: string, theme: ITheme): string {
-  return theme ? theme[name] || '' : '';
+function getStyleValue(name: string, theme: ITheme, styles: any): string {
+  const extra = styles[name + 'Style'] || '';
+  const style = theme ? theme[name] || '' : '';
+  return extra ? `${extra};${style}` : style;
 }
 
-function getStyle(name: string, theme: ITheme): string {
-  const value = getStyleValue(name, theme);
+function getStyle(name: string, theme: ITheme, styles: any): string {
+  const value = getStyleValue(name, theme, styles);
   return value ? ` style="${value}"` : '';
 }
 
@@ -49,7 +57,7 @@ class JSONPretty extends React.Component<IProps, {}> {
     space: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     theme: PropTypes.object,
     themeClassName: PropTypes.string,
-    onError: PropTypes.func
+    onJSONPrettyError: PropTypes.func
   };
 
   public static defaultProps = {
@@ -61,7 +69,25 @@ class JSONPretty extends React.Component<IProps, {}> {
   };
 
   public render() {
-    const { json, data, replacer, space, themeClassName, theme, onError, silent, ...rest } = this.props;
+    const {
+      json, data, replacer, space, themeClassName, theme, onJSONPrettyError, onError, silent,
+      mainStyle,
+      keyStyle,
+      valueStyle,
+      stringStyle,
+      booleanStyle,
+      errorStyle,
+      ...rest
+    } = this.props;
+
+    const styles = {
+      mainStyle,
+      keyStyle,
+      valueStyle,
+      stringStyle,
+      booleanStyle,
+      errorStyle
+    };
 
     let obj = data || json;
 
@@ -74,14 +100,19 @@ class JSONPretty extends React.Component<IProps, {}> {
           console.warn(`[react-json-pretty]: ${e.message}`);
         }
 
-        if (onError) {
+        if (onJSONPrettyError) {
+          onJSONPrettyError(e);
+        }
+
+        if (!onJSONPrettyError && onError) {
           onError(e);
+          console.warn('JSONPretty#onError is deprecated, please use JSONPretty#onJSONPrettyError instead');
         }
 
         return(
           <div {...rest} dangerouslySetInnerHTML={
             {__html:
-              `<pre class=${themeClassName}${getStyle('main', theme)}>${xss(obj)}</pre>`
+              `<pre class="__json-pretty-error__"${getStyle('error', theme, styles)}>${xss(obj)}</pre>`
             }
           }>
           </div>
@@ -92,8 +123,8 @@ class JSONPretty extends React.Component<IProps, {}> {
     return (
       <div {...rest} dangerouslySetInnerHTML={
         {__html:
-          `<pre class=${themeClassName}${getStyle('main', theme)}>${
-            this._pretty.call(this, theme, obj, replacer, +space)
+          `<pre class="${themeClassName}"${getStyle('main', theme, styles)}>${
+            this._pretty(theme, obj, replacer, +space, styles)
           }</pre>`
         }
       }>
@@ -102,7 +133,7 @@ class JSONPretty extends React.Component<IProps, {}> {
   }
 
   // JSON =》 HTML转换器
-  private _pretty(theme: ITheme, obj: any, replacer: () => {}, space: number) {
+  private _pretty(theme: ITheme, obj: any, replacer: (k: string, v: any) => any, space: number, styles: any) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     const regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
     const text = JSON.stringify(obj, typeof replacer === 'function' ? replacer : null, isNaN(space) ? 2 : space);
@@ -114,16 +145,16 @@ class JSONPretty extends React.Component<IProps, {}> {
 
     return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '\\&quot;$1')
       .replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(regLine, this._replace.bind(null, theme));
+      .replace(regLine, this._replace.bind(null, theme, styles));
   }
 
   // 格式化函数
-  private _replace(theme: ITheme, match: any, ind: string, key: string, val: string, tra: string) {
+  private _replace(theme: ITheme, styles: any, match: any, ind: string, key: string, val: string, tra: string) {
     const spanEnd = '</span>';
-    const keySpan = `<span class=__json-key__${getStyle('key', theme)}>`;
-    const valSpan = `<span class=__json-value__${getStyle('value', theme)}>`;
-    const strSpan = `<span class=__json-string__${getStyle('string', theme)}>`;
-    const booSpan = `<span class=__json-boolean__${getStyle('boolean', theme)}>`;
+    const keySpan = `<span class="__json-key__"${getStyle('key', theme, styles)}>`;
+    const valSpan = `<span class="__json-value__"${getStyle('value', theme, styles)}>`;
+    const strSpan = `<span class="__json-string__"${getStyle('string', theme, styles)}>`;
+    const booSpan = `<span class="__json-boolean__"${getStyle('boolean', theme, styles)}>`;
 
     let sps = ind || '';
     if (key) {
