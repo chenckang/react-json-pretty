@@ -74,6 +74,27 @@ The preview is as below:
 
 ![previews, you can also find it in the example folder](https://github.com/chenckang/react-json-pretty/blob/master/example/preview.png?raw=true)
 
+### Custom style
+
+#### Using ***type***Style property
+
+This can make control the extra styles of the specific type of value: 
+
+```
+mainStyle?: string;
+keyStyle?: string;
+valueStyle?: string;
+booleanStyle?: string;
+stringStyle?: string;
+errorStyle: string;
+```
+
+For example: set padding of the main area and the font size the normal value
+
+```jsx
+<JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={youJSON} mainStyle="padding:1em" valueStyle="font-size:1.5em"></JSONPretty>
+```
+
 ## Others
 
 ### Error
@@ -131,26 +152,7 @@ There are some default themes provided including `"Adventure Time"`, `acai` and 
 
 All the css theme files are placed in the `themes` folder.
 
-It is also prossible to define a custom theme:
-
-#### Using ***type***Style property
-
-This can make control the extra styles of the specific type of value: 
-
-```
-mainStyle?: string;
-keyStyle?: string;
-valueStyle?: string;
-booleanStyle?: string;
-stringStyle?: string;
-errorStyle: string;
-```
-
-For example: set padding of the main area and the font size the normal value
-
-```jsx
-<JSONPretty id="json-pretty" style={{fontSize: "1.1em"}} data={youJSON} mainStyle="padding:1em" valueStyle="font-size:1.5em"></JSONPretty>
-```
+It is also prossible to define a custom theme
 
 #### Using `themes` property
 
