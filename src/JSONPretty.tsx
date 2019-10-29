@@ -1,5 +1,5 @@
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 interface ITheme {[key: string]: string; }
 interface IProps extends React.HTMLAttributes<HTMLElement> {
