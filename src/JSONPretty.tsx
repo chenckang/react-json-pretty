@@ -6,6 +6,7 @@ interface IProps extends React.HTMLAttributes<HTMLElement> {
   json?: any;
   data?: any;
   replacer?: (key: string, value: any) => any | null;
+  pointerFormatter: any;
   space?: number | string;
   themeClassName?: string;
   theme?: ITheme;
@@ -53,6 +54,7 @@ class JSONPretty extends React.Component<IProps, {}> {
     data: PropTypes.any,
     json: PropTypes.any,
     replacer: PropTypes.func,
+    pointerFormatter: PropTypes.any,
     silent: PropTypes.bool,
     space: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     theme: PropTypes.object,
@@ -77,6 +79,7 @@ class JSONPretty extends React.Component<IProps, {}> {
       stringStyle,
       booleanStyle,
       errorStyle,
+      pointerFormatter,
       ...rest
     } = this.props;
 
@@ -124,7 +127,7 @@ class JSONPretty extends React.Component<IProps, {}> {
       <div {...rest} dangerouslySetInnerHTML={
         {__html:
           `<pre class="${themeClassName}"${getStyle('main', theme, styles)}>${
-            this._pretty(theme, obj, replacer, +space, styles)
+            this._pretty(theme, obj, replacer, pointerFormatter, +space, styles)
           }</pre>`
         }
       }>
@@ -133,7 +136,12 @@ class JSONPretty extends React.Component<IProps, {}> {
   }
 
   // JSON =》 HTML转换器
-  private _pretty(theme: ITheme, obj: any, replacer: (k: string, v: any) => any, space: number, styles: any) {
+  private _pretty(theme: ITheme,
+                  obj: any,
+                  replacer: (k: string, v: any) => any,
+                  pointerFormatter: any,
+                  space: number,
+                  styles: any) {
     // 逐行匹配，列举：“key”: "value" | "key": value | "key": [ | "key": { | "key": [],| "Key": {},
     const regLine = /^( *)("[^"]+": )?("[^"]*"|[\w.+-]*)?([,[{]|\[\s*\],?|\{\s*\},?)?$/mg;
     const text = JSON.stringify(obj, typeof replacer === 'function' ? replacer : null, isNaN(space) ? 2 : space);
@@ -145,11 +153,18 @@ class JSONPretty extends React.Component<IProps, {}> {
 
     return text.replace(/&/g, '&amp;').replace(/\\"([^,])/g, '\\&quot;$1')
       .replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(regLine, this._replace.bind(null, theme, styles));
+      .replace(regLine, this._replace.bind(null, theme, styles, pointerFormatter));
   }
 
   // 格式化函数
-  private _replace(theme: ITheme, styles: any, match: any, ind: string, key: string, val: string, tra: string) {
+  private _replace(theme: ITheme,
+                   styles: any,
+                   pointerFormatter: any,
+                   match: any,
+                   ind: string,
+                   key: string,
+                   val: string,
+                   tra: string) {
     const spanEnd = '</span>';
     const keySpan = `<span class="__json-key__"${getStyle('key', theme, styles)}>`;
     const valSpan = `<span class="__json-value__"${getStyle('value', theme, styles)}>`;
@@ -165,7 +180,8 @@ class JSONPretty extends React.Component<IProps, {}> {
       if (val === 'true' || val === 'false') {
         sps = sps +  booSpan + val + spanEnd;
       } else {
-        sps = sps + (val[0] === '"' ? strSpan : valSpan) + val + spanEnd;
+        const valDisplay = pointerFormatter ? pointerFormatter(key, val) : val;
+        sps = sps + (val[0] === '"' ? strSpan : valSpan) + valDisplay + spanEnd;
       }
     }
 
